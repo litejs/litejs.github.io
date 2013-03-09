@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>{{ page.title }}</title>{% if page.summary %}
+	<meta name="description" content="{{ page.summary }}" />{% endif %}
+	<link rel="stylesheet" href="/css/default.css" type="text/css" />{% for css in page.css %}
+	<link rel="stylesheet" href="{{ css }}" type="text/css" />{% endfor %}{% for js in page.javascript %}
+	<script type="text/javascript" src="{{ js }}"></script>{% endfor %}
+</head><body>
+
+<div class=header>litejs</div>
+
+<ul class=menu>
+	<li><a href="/liquid-lite/">liquid-lite</a></li>
+</ul>
+
+<div id=content>
+{{ content }}
+</div>
+<div id=footer>2013</div>
+</body>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22792206-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</html>

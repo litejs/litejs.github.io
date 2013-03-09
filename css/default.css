@@ -1,0 +1,67 @@
+html, body {
+	height: 100%;
+	font-size:100%;
+	line-height:1.125em;
+	-webkit-text-size-adjust: none;
+}
+
+button {
+ 	vertical-align: middle;
+
+	-webkit-user-select: none;
+	 -khtml-user-select: none;
+	   -moz-user-select: none;
+	        user-select: none;
+
+	width:auto;overflow:visible; /* Fixes extra padding issue in IE6/7 */
+	cursor:pointer;*cursor:hand; /* Alternate cursor for IE */
+}
+
+input {
+	vertical-align: middle;
+}
+
+/* for IE8 */
+:focus {
+	outline: none;
+}
+
+/* for FireFox */
+::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid blue;
+}
+a img {
+	border:0;
+}
+
+
+/*
+global classes
+*/
+.hand {
+	cursor: pointer; *cursor: hand; /* Alternate cursor for IE */
+}
+
+/* Prevent the text contents of draggable elements from being selectable. */
+[draggable=true] {
+	-webkit-user-drag: element;
+	 -khtml-user-drag: element;
+
+	-webkit-user-select: none;
+	 -khtml-user-select: none;
+	   -moz-user-select: none;
+	     -o-user-select: none;
+	        user-select: none;
+}
+
+.header, .menu, .content, .footer {
+	padding: 30px;
+}
+

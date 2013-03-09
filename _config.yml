@@ -1,0 +1,8 @@
+home: http://www.litejs.com
+name: litejs
+author: Lauri Rooden
+email: lauri@rooden.ee
+paginate: 25
+permalink: /:year/:month/:day/:title.html
+exclude:
+- README.md

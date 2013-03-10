@@ -3,6 +3,8 @@ layout: default
 title: liquid-lite
 summary: Lite version of Liquid markup template engine writen in javascript
 tags: [test]
+css:
+- css/pygments.css
 ---
 
 [1]: https://github.com/Shopify/liquid/ "Shopify in github"
@@ -23,7 +25,8 @@ Full version in ruby is available [by Shopify][1]
 
 ## What does it look like?
 
-```html
+{% highlight html %}
+{% raw %}
 <ul class="products">
   {% for product in products limit:5 %}
     <li>
@@ -37,14 +40,16 @@ Full version in ruby is available [by Shopify][1]
     <li>{{ product.title }} {{ product.price }}</li>
   {% endfor %}
 </ul>
-```
+{% endraw %}
+{% endhighlight %}
 
 See [test.html][2] for more examples
 
 **Liquid Filters** are available thru prototypes.
 Make as many as you need.
 
-```javascript
+{% highlight javascript %}
+{% raw %}
 String.prototype.capitalize = function() {
 	return this.charAt(0).toUpperCase() + this.slice(1)
 }
@@ -56,7 +61,8 @@ String.prototype.size = function() {
 Array.prototype.first = function() {
 	return this[0]
 }
-```
+{% endraw %}
+{% endhighlight %}
 
 
 ### Licence

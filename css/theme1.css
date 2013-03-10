@@ -3,6 +3,7 @@
 .reset,
 html,
 body,
+pre,
 .menu,
 .menu li,
 .menu a,
@@ -16,6 +17,10 @@ body,
 	font-weight: normal;
 	text-transform: none;
 	line-height: normal;
+}
+
+html {
+	box-shadow: inset 0px 150px 150px -150px #ccc;
 }
 
 body {

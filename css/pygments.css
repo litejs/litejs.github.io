@@ -7,11 +7,9 @@
 }
 .highlight{
 	background-color:#F0F0F0;
-	border-bottom:1px solid #CCCCCC;
-	border-top:1px solid #CCCCCC;
+	border-bottom: 2px solid #ccc;
 	font-family:"Bitstream Vera Sans Mono",monospace;
-	padding:0.5em 1em 1em !important;
-	margin:.4em 1em;
+	padding: .7em;
 	overflow:auto;
 }
 .highlight .c { color: #999988; font-style: italic } /* Comment */

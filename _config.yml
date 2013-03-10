@@ -3,7 +3,7 @@ name: litejs
 author: Lauri Rooden
 email: lauri@rooden.ee
 paginate: 25
-permalink: /:categories/:title.html
+permalink: /:title/
 markdown: rdiscount
 pygments: true
 exclude:

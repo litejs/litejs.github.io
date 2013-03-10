@@ -1,7 +1,6 @@
 html, body {
 	height: 100%;
-	font-size:100%;
-	line-height:1.125em;
+	font-size: 100%;
 	-webkit-text-size-adjust: none;
 }
 
@@ -32,11 +31,23 @@ input {
 	padding: 0;
 }
 
-a {
+a, a:visited {
 	color: inherit;
 	text-decoration: none;
-	border-bottom: 1px solid blue;
+	border-bottom: 1px dotted #000;
 }
+
+a:hover {
+	color:#f93;
+}
+
+a:active,
+a:focus {
+	color:#000;
+	text-shadow: 0px 0px 3px #fff, 6px 2px 9px red, -6px -2px 9px red;
+	outline: none;
+}
+
 a img {
 	border:0;
 }
@@ -47,6 +58,9 @@ global classes
 */
 .hand {
 	cursor: pointer; *cursor: hand; /* Alternate cursor for IE */
+}
+.right {
+	float: right;
 }
 
 /* Prevent the text contents of draggable elements from being selectable. */
@@ -61,7 +75,4 @@ global classes
 	        user-select: none;
 }
 
-.header, .menu, .content, .footer {
-	padding: 30px;
-}
 

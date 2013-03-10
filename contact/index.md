@@ -1,6 +1,6 @@
 ---
 layout: default
-title: home
+title: contact
 ---
 
 #### Work in progress

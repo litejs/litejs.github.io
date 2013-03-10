@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html><head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<title>{{ page.title }}</title>{% if page.summary %}
+	<title>LiteJS - {{ page.title }}</title>{% if page.summary %}
 	<meta name="description" content="{{ page.summary }}" />{% endif %}
-	<link rel="stylesheet" href="/css/default.css" type="text/css" />{% for css in page.css %}
-	<link rel="stylesheet" href="{{ css }}" type="text/css" />{% endfor %}{% for js in page.javascript %}
+	<link rel="stylesheet" href="/css/default.css" type="text/css" />
+	<link rel="stylesheet" href="/css/theme1.css" type="text/css" />{% for css in page.css %}
+	<link rel="stylesheet" href="/{{ css }}" type="text/css" />{% endfor %}{% for js in page.javascript %}
 	<script type="text/javascript" src="{{ js }}"></script>{% endfor %}
 </head><body>
 
-<div class=header>litejs</div>
-
 <ul class=menu>
-	<li><a href="/liquid-lite/">liquid-lite</a></li>
+	<li{% if page.title == "home" %} class=selected{% endif %}><a href="/">home</a></li>{% for x in site.menu %}
+	<li{% if page.title == x %} class=selected{% endif %}><a href="/{{ x }}/">{{ x }}</a></li>{% endfor %}
 </ul>
 
-<div id=content>
+<div class=header>
+	<h1><a href="/">LiteJS</a></h1>
+	<h2>Simplicity is the ultimate sophistication. —Leonardo da Vinci</h2>
+</div>
+
+<div class=content>
 {{ content }}
 </div>
-<div id=footer>2013</div>
+
+<div class=footer>
+	<div class=right>Updated {{ site.time }}</div>
+</div>
 </body>
-<script type="text/javascript">
+<script type="text/javascrip">
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-22792206-4']);

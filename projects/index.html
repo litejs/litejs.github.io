@@ -1,0 +1,12 @@
+---
+layout: default
+title: projects
+---
+
+<h1>Projects</h1>
+
+<ul class=post>
+{% for post in site.categories.projects %}
+	{% include post.md %}
+{% endfor %}
+</ul>

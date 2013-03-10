@@ -3,6 +3,7 @@ layout: default
 title: liquid-lite
 summary: Lite version of Liquid markup template engine writen in javascript
 tags: [test]
+fork: https://github.com/litejs/liquid-lite
 css:
 - css/pygments.css
 ---

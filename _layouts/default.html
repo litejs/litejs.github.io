@@ -8,9 +8,7 @@
 	<link rel="stylesheet" href="/{{ css }}" type="text/css" />{% endfor %}{% for js in page.javascript %}
 	<script type="text/javascript" src="{{ js }}"></script>{% endfor %}
 </head><body>
-{% if page.fork %}
-<a href="{{ page.fork }}"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-{% endif %}
+
 <ul class=menu>
 	<li{% if page.title == "home" %} class=selected{% endif %}><a href="/">home</a></li>{% for x in site.menu %}
 	<li{% if page.title == x %} class=selected{% endif %}><a href="/{{ x }}/">{{ x }}</a></li>{% endfor %}

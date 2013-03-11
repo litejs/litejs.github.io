@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: project
 title: liquid-lite
 summary: Lite version of Liquid markup template engine writen in javascript
 tags: [test]

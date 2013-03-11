@@ -1,14 +1,12 @@
 
 
-.reset,
 html,
 body,
 pre,
+.reset,
 .menu,
 .menu li,
 .menu a,
-.header h1,
-.header h2,
 .header a,
 .footer {
 	margin: 0;
@@ -25,9 +23,21 @@ html {
 
 body {
 	max-width: 960px;
+	min-height: 101%;
 	margin: 0 auto;
 	font: 16px Georgia, "Times New Roman", serif;
 	color: #666;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: .5em 0;
+	padding: 0;
+	font-size: 1.6em;
+	font-weight: normal;
+}
+
+h3, h4, h5, h6 {
+	font-size: 1.4em;
 }
 
 .header {
@@ -36,10 +46,14 @@ body {
 }
 
 .header h1 {
+	margin: 0;
+	padding: 0;
 	font-size: 2em;
 }
 
 .header h2 {
+	margin: 0;
+	padding: 0;
 	font-size: .8em;
 }
 
@@ -59,12 +73,14 @@ body {
 	background: #eee;
 }
 
-.content, .footer {
+.content {
 	clear: both;
+	min-height: 50%;
 }
 
 .footer {
-	padding: 20px 0;
+	clear: both;
+	padding: 20px 0 40px 0;
 	border-top: 1px solid #ddd;
 	font-size: .8em;
 }

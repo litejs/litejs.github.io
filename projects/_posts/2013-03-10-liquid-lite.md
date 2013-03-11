@@ -13,39 +13,79 @@ css:
 [3]: https://raw.github.com/litejs/liquid-lite/master/liquid-lite.min.js
 [4]: https://raw.github.com/litejs/liquid-lite/master/liquid-lite.js
 
-
 Liquid template engine
 ======================
 
 Lite version of Liquid markup template engine writen in javascript.
 Download [compressed][3] 
-(924 bytes or 594 bytes gzipped)
+(927 bytes or 596 bytes gzipped)
 or [uncompressed][4] source.
 
 Full version in ruby is available [by Shopify][1]
 
 
-## What does it look like?
+## When to use liquid-lite
+
+- When you trust your templates
+
+
+## How to use in browser
 
 {% highlight html %}
 {% raw %}
+<script src=liquid-lite.min.js></script>
+
+<script id=products type="text/liquid">
 <ul class="products">
-  {% for product in products limit:5 %}
+  {% for product in products %}
     <li>
       <h2>{{ product.title | upcase }}</h2>
       Only {{ product.price }}
       <p>{{ product.description }}</p>
     </li>
   {% endfor %}
-
-  {% for product in products offset:5 %}
-    <li>{{ product.title }} {{ product.price }}</li>
-  {% endfor %}
 </ul>
+</script>
+
+<div id=page></div>
+
+<script>
+var template = liquid( document.getElementById("products").innerHTML )
+
+var data = { products:
+  [ { title: "Product A", price: 1.01, description: "Hello a" }
+  , { title: "Product B", price: 1.02, description: "Hello b" }
+  , { title: "Product C", price: 1.03, description: "Hello c" }
+  ]
+}
+
+document.getElementById("page").innerHTML = template(data)
+</script>
 {% endraw %}
 {% endhighlight %}
 
 See [test.html][2] for more examples
+
+## How to use in node.js
+
+npm install liquid-lite
+
+{% highlight javascript %}
+{% raw %}
+var liquid = require("liquid-lite").liquid
+
+var template = liquid( my_template_string )
+
+var data = { products:
+  [ { title: "Product A", price: 1.01, description: "Hello a" }
+  , { title: "Product B", price: 1.02, description: "Hello b" }
+  , { title: "Product C", price: 1.03, description: "Hello c" }
+  ]
+}
+
+var output = template(data)
+{% endraw %}
+{% endhighlight %}
 
 **Liquid Filters** are available thru prototypes.
 Make as many as you need.

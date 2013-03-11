@@ -1,6 +1,0 @@
----
-layout: default
-title: home
----
-
-#### Work in progress

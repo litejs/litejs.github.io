@@ -26,19 +26,21 @@ body {
 	max-width: 960px;
 	min-height: 101%;
 	margin: 0 auto;
-	font: 16px Georgia, "Times New Roman", serif;
+	font: 14px Georgia, "Times New Roman", serif;
 	color: #666;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	margin: 1em 0 .5em 0;
-	padding: 0;
+	padding: 0 0 0 .3em;
 	font-size: 1.5em;
 	font-weight: normal;
+	border-left: .3em solid #5d5;
 }
 
 h3, h4, h5, h6 {
 	font-size: 1.3em;
+	border-left: .3em solid #55d;
 }
 
 .header {
@@ -49,13 +51,15 @@ h3, h4, h5, h6 {
 .header h1 {
 	margin: 0;
 	padding: 0;
-	font-size: 2em;
+	border: 0;
+	font-size: 2.3em;
 }
 
 .header h2 {
 	margin: 0;
 	padding: 0;
-	font-size: .8em;
+	border: 0;
+	font-size: .9em;
 }
 
 .menu {
@@ -89,6 +93,6 @@ h3, h4, h5, h6 {
 	clear: both;
 	padding: 20px 0 40px 0;
 	border-top: 1px solid #ddd;
-	font-size: .8em;
+	font-size: .9em;
 }
 

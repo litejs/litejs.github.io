@@ -6,6 +6,12 @@ permalink: /:title/
 {{ content }}
 
 {% if page.fork %}
-<a href="{{ page.fork }}"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+<a href="{{ page.fork }}"><img id=forkme style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+<script>
+!function(el) {
+	var arr = [ "red_aa0000", "green_007200", "darkblue_121621", "orange_ff7600", "gray_6d6d6d" ]
+	el.src = "https://s3.amazonaws.com/github/ribbons/forkme_left_" + arr[ new Date().getHours() % arr.length ] + ".png"
+}(document.getElementById("forkme"))
+</script>
 {% endif %}
 

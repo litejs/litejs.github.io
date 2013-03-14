@@ -1,0 +1,12 @@
+---
+layout: default
+title: Book
+---
+
+<h1>Book</h1>
+
+<ul class=post>
+{% for post in site.categories.book %}
+	{% include post.md %}
+{% endfor %}
+</ul>

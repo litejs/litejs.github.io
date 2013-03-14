@@ -1,0 +1,26 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>{{ site.name }}</title>
+    <description>software development that flies</description>
+    <link>{{ site.home }}</link>
+    <language>en</language>
+    <lastBuildDate>Mon, 06 Sep 2010 00:01:00 +0000 </lastBuildDate>
+    <pubDate>Mon, 06 Sep 2009 16:45:00 +0000 </pubDate>
+    <ttl>1800</ttl>
+{% for post in site.posts limit:15 %}
+    <item>
+      <title>{{ post.title }}</title>
+      <description>{{ post.summary }}</description>
+      <link>{{ site.home }}{{ post.url }}</link>
+      <pubDate>{{ post.date }}</pubDate>
+			{% for tag in page.tags %}
+				<category domain="{{ site.home }}/tags/{{ tag | replace:'+','%20'}}.html">{{ tag }}</category>
+			{% endfor %}
+    </item>
+{% endfor %}
+  </channel>
+</rss>

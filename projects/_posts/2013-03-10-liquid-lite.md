@@ -14,13 +14,14 @@ css:
 [4]: https://raw.github.com/litejs/liquid-lite/master/liquid-lite.js
 [5]: https://github.com/darthapo/liquid.js
 [date-format-lite]: http://www.litejs.com/date-format-lite/
+[liquid-filters-lite]: http://www.litejs.com/liquid-filters-lite/
 
 Liquid template engine
 ======================
 
 This is a not complete port of [Liquid][1] template engine.
 Download [compressed][3] 
-(993 bytes or 626 bytes gzipped)
+(997 bytes or 627 bytes gzipped)
 or [uncompressed][4] source.
 A complete port is available [by darthapo][5].
 
@@ -33,7 +34,7 @@ A complete port is available [by darthapo][5].
 
 {% highlight html %}
 {% raw %}
-<script src=liquid-lite.min.js></script>
+<script src=liquid-lite.js></script>
 
 <script id=products type="text/liquid">
 <ul class="products">
@@ -95,6 +96,9 @@ var output = template(data)
     {% if user %}
       Hello {{ user.name }}
     {% endif %}
+    {% if user.name == "bob" %}
+      Hello Bob
+    {% endif %}
     {% endraw %}
 {% endhighlight %}
 
@@ -119,10 +123,11 @@ var output = template(data)
 
 Standard Filters are not implemented by default 
 but you have access to prototypes.
-Make as many as you need.
+Make as many as you need
+or use [liquid-filters-lite][].
 
 - **date** - reformat a date syntax reference  
-    Works well with [date-format-lite][]
+    Implemented in [date-format-lite][]
     {% highlight javascript %}
 {% raw %}
     var item = { "timestamp": 1363770186, "datetime": "2013-03-20T09:03:06Z" }
@@ -147,181 +152,7 @@ Make as many as you need.
     {% endraw %}
 {% endhighlight %}
 
-- **upcase** - convert an input string to uppercase
-    {% highlight javascript %}
-{% raw %}
-    String.prototype.upcase = String.prototype.toUpperCase
-    {% endraw %}
-{% endhighlight %}
-
-- **first** - get the first element of the passed in array
-    {% highlight javascript %}
-{% raw %}
-    Array.prototype.first = function() {
-      return this[0]
-    }
-    {% endraw %}
-{% endhighlight %}
-
-- **last** - get the last element of the passed in array
-    {% highlight javascript %}
-{% raw %}
-    Array.prototype.last = function() {
-      return this[this.length - 1]
-    }
-    {% endraw %}
-{% endhighlight %}
-
-- **join** - join elements of the array with certain character between them.
-    _Native in javascript_
-
-- **sort** - sort elements of the array
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **map** - map/collect an array on a given property
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **size** - return the size of an array or string
-    {% highlight javascript %}
-{% raw %}
-    String.prototype.size = Array.prototype.size = function() {
-      return this.length
-    }
-    {% endraw %}
-{% endhighlight %}
-
-- **escape** - escape a string
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **escape_once** - returns an escaped version of html without affecting existing escaped entities
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **strip_html** - strip html from string
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **strip_newlines** - strip all newlines (\n) from string
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **newline_to_br** - replace each newline (\n) with html break
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **replace** - replace each occurrence e.g. {{ 'foofoo' | replace:'foo','bar' }} #=> 'barbar'.
-    _Native in javascript_
-
-- **replace_first** - replace the first occurrence e.g. {{ 'barbar' | replace_first:'bar','foo' }} #=> 'foobar'
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **remove** - remove each occurrence e.g. {{ 'foobarfoobar' | remove:'foo' }} #=> 'barbar'
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **remove_first** - remove the first occurrence e.g. {{ 'barbar' | remove_first:'bar' }} #=> 'bar'
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **truncate** - truncate a string down to x characters
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **truncatewords** - truncate a string down to x words
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **prepend** - prepend a string e.g. {{ 'bar' | prepend:'foo' }} #=> 'foobar'
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **append** - append a string e.g. {{ 'foo' | append:'bar' }} #=> 'foobar'
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **minus** - subtraction e.g. {{ 4 | minus:2 }} #=> 2
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **plus** - addition e.g. {{ '1' | plus:'1' }} #=> '11', {{ 1 | plus:1 }} #=> 2
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **times** - multiplication e.g {{ 5 | times:4 }} #=> 20
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **divided_by** - division e.g. {{ 10 | divided_by:2 }} #=> 5
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
-
-- **split** - split a string on a matching pattern e.g. {{ "a~b" | split:~ }} #=> ['a','b'].
-    _Native in javascript_
-
-- **modulo** - remainder, e.g. {{ 3 | modulo:2 }} #=> 1
-    {% highlight javascript %}
-{% raw %}
-		//TODO
-    {% endraw %}
-{% endhighlight %}
+See [liquid-filters-lite][] for more examples
 
 
 ### Licence

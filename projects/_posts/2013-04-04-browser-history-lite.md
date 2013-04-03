@@ -1,40 +1,36 @@
 ---                                                                             
 layout: project                                                                 
-title: elements-lite
-summary: DOM buildel for browser
+title: browser-history-lite
+summary: History helper for browser
 tags: [litejs]                                                                    
-fork: https://github.com/litejs/elements-lite
+fork: https://github.com/litejs/browser-history-lite
 css:                                                                            
 - css/pygments.css                                                              
 ---                                                                             
 
-[1]: https://raw.github.com/litejs/elements-lite/master/min.js
-[2]: https://raw.github.com/litejs/elements-lite/master/elements-lite.js
+[1]: https://raw.github.com/litejs/browser-history-lite/master/min.js
+[2]: https://raw.github.com/litejs/browser-history-lite/master/browser-history-lite.js
 
 
-Elements
-========
+History
+=======
 
-DOM builder for browser.
+Browser history helper.
 Download [compressed][1] 
-(2641 bytes or 1154 bytes gzipped)
+(815 bytes or 527 bytes gzipped)
 or [uncompressed][2] source.
 
 
 ### Usage
 
-`<script src=sha-lite.js></script>` should place inside body.
-
 {% highlight javascript %}
 {% raw %}
-El("div", "test").to(document.body)
-//<div>test</div>
 
-El("a", {id:"link", href:"/home"}).append("Home").to(document.body)
-//<a id="link" href="/home">Home</a>
+function log(route) {
+	console.log("routed to ", route)
+}
 
-El(".custom", "test").to(document.body)
-//<div class="custom">test</div>
+history.start(log)
 {% endraw %}
 {% endhighlight %}
 

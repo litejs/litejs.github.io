@@ -1,40 +1,31 @@
 ---                                                                             
 layout: project                                                                 
-title: elements-lite
-summary: DOM buildel for browser
+title: natural-compare-lite
+summary: Natural Order String Comparison for Sorting
 tags: [litejs]                                                                    
-fork: https://github.com/litejs/elements-lite
+fork: https://github.com/litejs/natural-compare-lite
 css:                                                                            
 - css/pygments.css                                                              
 ---                                                                             
 
-[1]: https://raw.github.com/litejs/elements-lite/master/min.js
-[2]: https://raw.github.com/litejs/elements-lite/master/elements-lite.js
+[1]: https://raw.github.com/litejs/natural-compare-lite/master/min.js
+[2]: https://raw.github.com/litejs/natural-compare-lite/master/natural-compare-lite.js
 
 
-Elements
-========
+Natural Order String Comparison
+===============================
 
-DOM builder for browser.
 Download [compressed][1] 
-(2641 bytes or 1154 bytes gzipped)
+(412 bytes or 267 bytes gzipped)
 or [uncompressed][2] source.
 
 
 ### Usage
 
-`<script src=sha-lite.js></script>` should place inside body.
-
 {% highlight javascript %}
 {% raw %}
-El("div", "test").to(document.body)
-//<div>test</div>
-
-El("a", {id:"link", href:"/home"}).append("Home").to(document.body)
-//<a id="link" href="/home">Home</a>
-
-El(".custom", "test").to(document.body)
-//<div class="custom">test</div>
+var a = ["z1.doc", "z10.doc", "z17.doc", "z2.doc", "z23.doc", "z3.doc"]
+a.sort(String.natural_compare)
 {% endraw %}
 {% endhighlight %}
 

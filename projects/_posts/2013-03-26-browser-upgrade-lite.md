@@ -17,7 +17,7 @@ Browser upgrade
 
 Implement new features for old browsers.
 Download [compressed][1] 
-(2720 bytes or 1341 bytes gzipped)
+(2789 bytes or 1373 bytes gzipped)
 or [uncompressed][2] source.
 
 
@@ -36,6 +36,7 @@ or [uncompressed][2] source.
 - Array.prototype.map
 - Array.prototype.filter
 - Array.prototype.some
+- String.prototype.trim
 - JSON
 - atob/btoa (base64)
 

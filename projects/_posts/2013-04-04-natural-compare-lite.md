@@ -29,6 +29,11 @@ a.sort(String.natural_compare)
 {% endraw %}
 {% endhighlight %}
 
+External links
+--------------
+
+- [jsperf test](http://jsperf.com/natural-sort-2/2)
+
 
 ### Licence
 

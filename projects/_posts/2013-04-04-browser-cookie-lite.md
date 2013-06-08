@@ -8,10 +8,6 @@ css:
 - css/pygments.css                                                              
 ---                                                                             
 
-    @version  0.1.1
-    @author   Lauri Rooden - https://github.com/litejs/browser-cookie-lite
-    @license  MIT License  - http://lauri.rooden.ee/mit-license.txt
-
 
 Browser Cookie Lite
 ===================
@@ -25,15 +21,13 @@ or [uncompressed][2] source.
 API
 ---
 
-{% highlight javascript %}
-{% raw %}
+{% highlight javascript %}{% raw %}
 // Get a cookie
 Cookie(name) -> String
 
 // Set a cookie
 Cookie(name, value, [ttl], [path], [domain], [secure]) -> String
-{% endraw %}
-{% endhighlight %}
+{% endraw %}{% endhighlight %}
 
 -   **name** `String` - The name of the cookie.
 -   **value** `String` - The value of the cookie.
@@ -56,8 +50,7 @@ Cookie(name, value, [ttl], [path], [domain], [secure]) -> String
 Examples
 --------
 
-{% highlight javascript %}
-{% raw %}
+{% highlight javascript %}{% raw %}
 // simple set
 Cookie("test", "a")
 // complex set - Cookie(name, value, ttl, path, domain, secure)
@@ -66,8 +59,7 @@ Cookie("test", "a", 60*60*24, "/api", "*.example.com", true)
 Cookie("test")
 // destroy
 Cookie("test", "", -1)
-{% endraw %}
-{% endhighlight %}
+{% endraw %}{% endhighlight %}
 
 
 Notes
@@ -92,6 +84,12 @@ External links
 
 - [rfc6265][]
 
+
+
+### Licence
+
+Copyright (c) 2012 Lauri Rooden &lt;lauri@rooden.ee&gt;  
+[The MIT License](http://lauri.rooden.ee/mit-license.txt)
 
 
 [1]: https://raw.github.com/litejs/browser-cookie-lite/master/min.js

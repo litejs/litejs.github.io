@@ -8,8 +8,8 @@ css:
 - css/pygments.css                                                              
 ---                                                                             
 
-[1]: https://raw.github.com/litejs/elements-lite/master/min.js
-[2]: https://raw.github.com/litejs/elements-lite/master/elements-lite.js
+[1]: https://raw.github.com/litejs/elements-lite/master/min.elements.js
+[2]: https://raw.github.com/litejs/elements-lite/master/elements.js
 
 
 Elements
@@ -17,7 +17,7 @@ Elements
 
 DOM builder for browser.
 Download [compressed][1] 
-(2683 bytes, 1168 bytes gzipped)
+(2741 bytes, 1219 bytes gzipped)
 or [uncompressed][2] source.
 
 
@@ -25,8 +25,7 @@ or [uncompressed][2] source.
 
 `<script src=elements-lite.js></script>` should place inside body.
 
-{% highlight javascript %}
-{% raw %}
+{% highlight javascript %}{% raw %}
 El("div", "test").to(document.body)
 //<div>test</div>
 
@@ -35,8 +34,7 @@ El("a", {id:"link", href:"/home"}).append("Home").to(document.body)
 
 El(".custom", "test").to(document.body)
 //<div class="custom">test</div>
-{% endraw %}
-{% endhighlight %}
+{% endraw %}{% endhighlight %}
 
 
 ### Licence

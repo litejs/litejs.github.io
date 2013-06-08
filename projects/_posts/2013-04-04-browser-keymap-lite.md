@@ -23,8 +23,7 @@ or [uncompressed][2] source.
 
 ### Usage
 
-{% highlight javascript %}
-{% raw %}
+{% highlight javascript %}{% raw %}
 var keyMap = {
 	H: function(event, key) {
 		// metacode
@@ -54,8 +53,7 @@ var subViewKeyMap = {
 // attach default keymap
 Event.setKeyMap(keyMap)
 
-{% endraw %}
-{% endhighlight %}
+{% endraw %}{% endhighlight %}
 
 
 ### Licence

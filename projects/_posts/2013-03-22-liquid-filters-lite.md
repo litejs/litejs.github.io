@@ -28,13 +28,11 @@ or [uncompressed][2] source.
 
 - **date** - reformat a date syntax reference  
     Require [date-format-lite][]
-    {% highlight javascript %}
-{% raw %}
+    {% highlight javascript %}{% raw %}
     var item = { "timestamp": 1363770186, "datetime": "2013-03-20T09:03:06Z" }
     {{ timestamp | date:"isoUtcDateTime" }}
     {{ datetime | date:"hh:mm" }}
-    {% endraw %}
-{% endhighlight %}
+    {% endraw %}{% endhighlight %}
 
 -   **capitalize** - capitalize words in the input sentence
 -   **downcase** - convert an input string to lowercase
@@ -48,12 +46,10 @@ or [uncompressed][2] source.
 -   **size** - return the size of an array or string
 -   **replace** - replace the first or each occurrence. 
     `Native in javascript`
-    {% highlight javascript %}
-{% raw %}
+    {% highlight javascript %}{% raw %}
     {{ 'foofoo' | replace:'foo','bar' }} #=> 'barfoo'
     {{ 'foofoo' | replace:/foo/g,'bar' }} #=> 'barbar'
-    {% endraw %}
-{% endhighlight %}
+    {% endraw %}{% endhighlight %}
 -   **remove** - remove each occurrence e.g. {{ 'foobarfoobar' | remove:'foo' }} #=> 'barbar'
 -   **remove_first** - remove the first occurrence e.g. {{ 'barbar' | remove_first:'bar' }} #=> 'bar'
 -   **split** - split a string on a matching pattern e.g. {{ "a~b" | split:~ }} #=> ['a','b'].

@@ -23,8 +23,7 @@ or [uncompressed][2] source.
 
 ### Usage
 
-{% highlight javascript %}
-{% raw %}
+{% highlight javascript %}{% raw %}
 function hi(){
 	alert("Hei")	
 	// alert just once
@@ -34,8 +33,7 @@ function hi(){
 Event.add(el, "click", hi)
 // handle also touch events
 Event.touch_as_mouse(el) 
-{% endraw %}
-{% endhighlight %}
+{% endraw %}{% endhighlight %}
 
 
 ### Licence

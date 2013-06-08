@@ -21,7 +21,7 @@ Liquid template engine
 
 This is a not complete port of [Liquid][1] template engine.
 Download [compressed][3] 
-(1003 bytes, 631 bytes gzipped)
+(930 bytes, 584 bytes gzipped)
 or [uncompressed][4] source.
 A complete port is available [by darthapo][5].
 
@@ -34,8 +34,7 @@ A complete port is available [by darthapo][5].
 
 ## How to use in browser
 
-{% highlight html %}
-{% raw %}
+{% highlight html %}{% raw %}
 <script src=liquid-lite.js></script>
 
 <script id=products type="text/liquid">
@@ -64,8 +63,7 @@ var data = { products:
 
 document.getElementById("page").innerHTML = template(data)
 </script>
-{% endraw %}
-{% endhighlight %}
+{% endraw %}{% endhighlight %}
 
 See [test.html][2] for more examples
 
@@ -73,8 +71,7 @@ See [test.html][2] for more examples
 
 npm install liquid-lite
 
-{% highlight javascript %}
-{% raw %}
+{% highlight javascript %}{% raw %}
 var liquid = require("liquid-lite").liquid
 
 var template = liquid( my_template_string )
@@ -87,39 +84,41 @@ var data = { products:
 }
 
 var output = template(data)
-{% endraw %}
-{% endhighlight %}
+{% endraw %}{% endhighlight %}
 
-## Currently supported tags
+## Tags
 
-- **if** / **elsif** / **else**  
-    {% highlight javascript %}
-{% raw %}
-    {% if user %}
-      Hello {{ user.name }}
-    {% endif %}
-    {% if user.name == "bob" %}
-      Hello Bob
-    {% endif %}
-    {% endraw %}
-{% endhighlight %}
+### if / elsif / else
 
-- **for**
-    {% highlight javascript %}
-{% raw %}
-    {% for product in products %}
-      {{ product.title }}
-    {% endfor %}
+{% highlight javascript %}{% raw %}
+{% if user %}
+  Hello {{ user.name }}
+{% endif %}
+{% if user.name == "bob" %}
+  Hello Bob
+{% endif %}
+{% endraw %}{% endhighlight %}
 
-    {% for i = 3; i > 0; i-- %}
-      {{ i }}
-    {% endfor %}
+### for
 
-    {% for item in ["a", "b", "c"] %}
-      {{ item }}
-    {% endfor %}
-    {% endraw %}
-{% endhighlight %}
+{% highlight javascript %}{% raw %}
+{% for product in products %}
+  {{ product.title }}
+{% endfor %}
+
+{% for i = 3; i > 0; i-- %}
+  {{ i }}
+{% endfor %}
+
+{% for item in ["a", "b", "c"] %}
+  {{ item }}
+{% endfor %}
+{% endraw %}{% endhighlight %}
+
+The following helper variables are available:
+
+-   loop.key - named key when iterated over Object
+-   loop.i - index
 
 ## Liquid Filters
 
@@ -130,32 +129,32 @@ or use [liquid-filters-lite][].
 
 - **date** - reformat a date syntax reference  
     Implemented in [date-format-lite][]
-    {% highlight javascript %}
-{% raw %}
+    {% highlight javascript %}{% raw %}
     var item = { "timestamp": 1363770186, "datetime": "2013-03-20T09:03:06Z" }
     {{ timestamp | date:"isoUtcDateTime" }}
     {{ datetime | date:"hh:mm" }}
-    {% endraw %}
-{% endhighlight %}
+    {% endraw %}{% endhighlight %}
 
 - **capitalize** - capitalize words in the input sentence
-    {% highlight javascript %}
-{% raw %}
+    {% highlight javascript %}{% raw %}
     String.prototype.capitalize = function() {
       return this.charAt(0).toUpperCase() + this.slice(1)
     }
-    {% endraw %}
-{% endhighlight %}
+    {% endraw %}{% endhighlight %}
 
 - **downcase** - convert an input string to lowercase
-    {% highlight javascript %}
-{% raw %}
+    {% highlight javascript %}{% raw %}
     String.prototype.downcase = String.prototype.toLowerCase
-    {% endraw %}
-{% endhighlight %}
+    {% endraw %}{% endhighlight %}
 
 See [liquid-filters-lite][] for more examples
 
+## Notes
+
+-   You can access to properties named by reserved words thru _0 object.
+    {% highlight javascript %}{% raw %}
+    {% for val in _0["enum"] %}
+    {% endraw %}{% endhighlight %}
 
 ### Licence
 

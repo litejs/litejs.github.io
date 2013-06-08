@@ -22,12 +22,10 @@ or [uncompressed][2] source.
 
 ### Usage
 
-{% highlight javascript %}
-{% raw %}
+{% highlight javascript %}{% raw %}
 var a = ["z1.doc", "z10.doc", "z17.doc", "z2.doc", "z23.doc", "z3.doc"]
 a.sort(String.natural_compare)
-{% endraw %}
-{% endhighlight %}
+{% endraw %}{% endhighlight %}
 
 External links
 --------------

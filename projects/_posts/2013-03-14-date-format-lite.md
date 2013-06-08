@@ -27,39 +27,32 @@ or [uncompressed][1] source.
 
 ### In browser
 
-{% highlight html %}
-{% raw %}
+{% highlight html %}{% raw %}
 <script src=date-format-lite.js></script>
-{% endraw %}
-{% endhighlight %}
+{% endraw %}{% endhighlight %}
 
 ### In node.js
 
 npm install date-format-lite
 
-{% highlight javascript %}
-{% raw %}
+{% highlight javascript %}{% raw %}
 require("date-format-lite")
 
-{% endraw %}
-{% endhighlight %}
+{% endraw %}{% endhighlight %}
 
 ### Usage
 
-{% highlight javascript %}
-{% raw %}
+{% highlight javascript %}{% raw %}
 var dateStr = new Date().format("isoUtcDateTime")
 var dateStr = new Date().format("hh:mm")
 
-{% endraw %}
-{% endhighlight %}
+{% endraw %}{% endhighlight %}
 
 See [tests][3] for more examples
 
 ## Syntax
 
-{% highlight javascript %}
-{% raw %}
+{% highlight javascript %}{% raw %}
 YY    - A two digit representation of a year. Examples: 99 or 03
 YY    - A two digit representation of a year. Examples: 99 or 03
 YYYY  - A full numeric representation of a year, 4 digits. Examples: 1999 or 2003
@@ -87,8 +80,7 @@ a     - Lowercase Ante meridiem and Post meridiem. am or pm
 A     - Uppercase Ante meridiem and Post meridiem. AM or PM
 Z     - Difference to Greenwich time (GMT) with colon between hours and minutes. Example: GMT +02:00
 w     - Week number of year, First week is the week with 4 January in it
-{% endraw %}
-{% endhighlight %}
+{% endraw %}{% endhighlight %}
 
 ### Licence
 

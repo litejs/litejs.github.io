@@ -8,8 +8,12 @@ css:
 - css/pygments.css                                                              
 ---                                                                             
 
-[1]: https://raw.github.com/litejs/browser-keymap-lite/master/min.js
-[2]: https://raw.github.com/litejs/browser-keymap-lite/master/browser-keymap-lite.js
+[1]: https://raw.github.com/litejs/browser-keymap-lite/master/min.browser-keymap.js
+[2]: https://raw.github.com/litejs/browser-keymap-lite/master/browser-keymap.js
+
+
+    @version  0.1.4
+    @date     2013-07-13
 
 
 Browser Keymap
@@ -17,7 +21,7 @@ Browser Keymap
 
 Keyboard shortcuts.
 Download [compressed][1] 
-(889 bytes or 599 bytes gzipped)
+(889 bytes, 599 bytes gzipped)
 or [uncompressed][2] source.
 
 

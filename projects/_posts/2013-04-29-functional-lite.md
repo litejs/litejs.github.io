@@ -12,8 +12,8 @@ css:
 [2]: https://raw.github.com/litejs/fn-lite/master/functional.js
 
 
-    @version  0.0.11
-    @date     2013-07-13
+    @version  0.0.12
+    @date     2013-07-22
 
 
 Functional

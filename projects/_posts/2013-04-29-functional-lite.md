@@ -8,24 +8,30 @@ css:
 - css/pygments.css                                                              
 ---                                                                             
 
-[1]: https://raw.github.com/litejs/fn-lite/master/min.functional.js
-[2]: https://raw.github.com/litejs/fn-lite/master/functional.js
+[Build]:    http://img.shields.io/travis/litejs/functional-lite.png
+[Coverage]: http://img.shields.io/coveralls/litejs/functional-lite.png
+[Gittip]:   http://img.shields.io/gittip/lauriro.png
+[1]: https://travis-ci.org/litejs/functional-lite
+[2]: https://coveralls.io/r/litejs/functional-lite
+[3]: https://www.gittip.com/lauriro/
+
+[7]: https://ci.testling.com/litejs/functional-lite.png
+[8]: https://ci.testling.com/litejs/functional-lite
+[npm-package]: https://npmjs.org/package/functional-lite
 
 
-    @version  0.0.12
-    @date     2013-07-22
+
+    @version    0.2.1
+    @date       2014-02-18
+    @stability  2 - Unstable
 
 
-Functional
+
+Functional &ndash; [![Build][]][1] [![Coverage][]][2] [![Gittip][]][3]
 ==========
 
 Experimental Functional stuff.
-Download [compressed][1] 
-(2781 bytes, 1207 bytes gzipped)
-or [uncompressed][2] source.
 
-
-[![Build Status](https://travis-ci.org/litejs/functional-lite.png?branch=master)](https://travis-ci.org/litejs/functional-lite)
 
 
 Examples
@@ -43,6 +49,17 @@ Extends String and Function with "every filter each map fold foldr some"
 [1, 2, 3].map(Fn("_ + 1"))
 // [2, 3, 4]
 {% endraw %}{% endhighlight %}
+
+### Browser Support
+
+[![browser support][7]][8]
+
+
+External links
+--------------
+
+-   [npm-package][]
+
 
 ### Licence
 

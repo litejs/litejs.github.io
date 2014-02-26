@@ -7,34 +7,32 @@ fork: https://github.com/litejs/browser-cookie-lite
 css:                                                                            
 - css/pygments.css                                                              
 ---                                                                             
-[1]: https://raw.github.com/litejs/browser-cookie-lite/master/min.browser-cookie.js
-[2]: https://raw.github.com/litejs/browser-cookie-lite/master/browser-cookie.js
-[rfc6265]: http://tools.ietf.org/html/rfc6265
+[GitHub repo]: https://github.com/litejs/browser-cookie-lite
+[npm module]: https://npmjs.org/package/browser-cookie-lite
+[rfc-6265]: http://tools.ietf.org/html/rfc6265
 
 
 
-    @version  0.2.0
-    @date     2013-07-13
+    @version    0.3.1
+    @date       2014-02-25
+    @stability  2 - Unstable
+
 
 
 Browser Cookie Lite
 ===================
 
-Cookie getter/setter for browser.
-Download [compressed][1]
-(283 bytes, 237 bytes gzipped)
-or [uncompressed][2] source.
-
+Cookie setter/getter for browser
 
 API
 ---
 
 {% highlight javascript %}{% raw %}
 // Get a cookie
-Cookie(name) -> String
+cookie(name) -> String
 
 // Set a cookie
-Cookie(name, value, [ttl], [path], [domain], [secure]) -> String
+cookie(name, value, [ttl], [path], [domain], [secure]) -> String
 {% endraw %}{% endhighlight %}
 
 -   **name** `String` - The name of the cookie.
@@ -60,18 +58,21 @@ Examples
 
 {% highlight javascript %}{% raw %}
 // simple set
-Cookie("test", "a")
-// complex set - Cookie(name, value, ttl, path, domain, secure)
-Cookie("test", "a", 60*60*24, "/api", "*.example.com", true)
+cookie("test", "a")
+// complex set - cookie(name, value, ttl, path, domain, secure)
+cookie("test", "a", 60*60*24, "/api", "*.example.com", true)
 // get
-Cookie("test")
+cookie("test")
 // destroy
-Cookie("test", "", -1)
+cookie("test", "", -1)
 {% endraw %}{% endhighlight %}
 
 
 Notes
 -----
+
+-   This implementation returns always a string,
+    so unset cookie and cookie set to empty string are equal.
 
 -   You SHOULD use as few and as small cookies as possible to minimize network
     bandwidth due to the Cookie header being included in every request.
@@ -90,7 +91,9 @@ Notes
 External links
 --------------
 
-- [rfc6265][]
+-   [GitHub repo][]
+-   [npm module][]
+-   [rfc-6265][]
 
 
 

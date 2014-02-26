@@ -8,20 +8,25 @@ css:
 - css/pygments.css                                                              
 ---                                                                             
 
-[1]: https://raw.github.com/litejs/browser-upgrade-lite/master/min.js
-[2]: https://raw.github.com/litejs/browser-upgrade-lite/master/browser-upgrade-lite.js
+[7]: https://ci.testling.com/litejs/browser-upgrade-lite.png
+[8]: https://ci.testling.com/litejs/browser-upgrade-lite
+[npm-package]: https://npmjs.org/package/browser-upgrade-lite
+
+
+    @version    0.1.8
+    @date       2014-02-18
+    @stability  2 - Unstable
+
 
 
 Browser upgrade
 ===============
 
-Implement new features for old browsers.
-Download [compressed][1] 
-(2106 bytes, 1007 bytes gzipped)
-or [uncompressed][2] source.
+Implement EcmaScript 5 methods for older browsers.
 
 
-### Contains
+Contains
+--------
 
 - Functionprototype.bind
 - Object.keys
@@ -37,14 +42,44 @@ or [uncompressed][2] source.
 - Array.prototype.filter
 - Array.prototype.some
 - Date.prototype.toISOString
-- Date: now
+- Date.now
 - String.prototype.trim
 - JSON
 - atob/btoa (base64) // Disabled by default
 
 
+Browser Support
+---------------
 
-### Licence
+[![browser support][7]][8]
+
+-   If no !DOCTYPE is specified, IE6-9 renders the page in IE5 mode!
+-   document.createDocumentFragment is unsupported in IE5.5
+-   IE 5.5 doesn't support the * collection (all elements) in 
+    document.getElementByTagName — it returns a collection with zero members
+-   instanceof is not implemented in IE 5 MAC
+-   Safari 2.0.2: 416     hasOwnProperty introduced October 31, 2005 (Mac OS X v10.4)
+    {% highlight javascript %}{% raw %}
+    // Polyfill
+    Object.prototype.hasOwnProperty = function(name, obj) {
+    	try {
+    		obj = this.constructor
+    		while (obj=obj.prototype) if (obj[name]===this[name]) return false
+    	} catch(e) {}
+    	return true
+    }
+    {% endraw %}{% endhighlight %}
+
+
+
+External links
+--------------
+
+-   [npm-package][]
+
+
+Licence
+-------
 
 Copyright (c) 2012 Lauri Rooden &lt;lauri@rooden.ee&gt;  
 [The MIT License](http://lauri.rooden.ee/mit-license.txt)

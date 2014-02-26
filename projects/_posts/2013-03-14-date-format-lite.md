@@ -8,27 +8,34 @@ css:
 - css/pygments.css
 ---
 
-[1]: https://raw.github.com/litejs/date-format-lite/master/date-format.js
-[2]: https://raw.github.com/litejs/date-format-lite/master/min.date-format.js
-[3]: https://raw.github.com/litejs/date-format-lite/master/tests/run.js "tests/run.js"
+[1]: https://secure.travis-ci.org/litejs/date-format-lite.png
+[2]: https://travis-ci.org/litejs/date-format-lite
+[3]: https://coveralls.io/repos/litejs/date-format-lite/badge.png
+[4]: https://coveralls.io/r/litejs/date-format-lite
+[5]: https://nodei.co/npm/date-format-lite.png
+[6]: https://nodei.co/npm/date-format-lite/
+[7]: https://ci.testling.com/litejs/date-format-lite.png
+[8]: https://ci.testling.com/litejs/date-format-lite
+[src]: https://raw.github.com/litejs/date-format-lite/master/date-format.js
+[min]: https://raw.github.com/litejs/date-format-lite/master/min.date-format.js
+[tests]: https://raw.github.com/litejs/date-format-lite/master/tests/run.js "tests/run.js"
 
-    @version  0.1.5
-    @date     2013-07-13
 
-Date format
+
+Date format &ndash; [![Build][1]][2] [![Coverage][3]][4]
 ===========
+
+[![NPM][5]][6]
 
 Lite version of Date format and parse for node.js and browser
 that extends native objects.
-Download [compressed][2] 
-(2142 bytes, 1068 bytes gzipped)
-or [uncompressed][1] source.
+Download [compressed][min] 
+(2031 bytes, 1130 bytes gzipped)
+or [uncompressed][src] source.
 
 
 
 ## How to use
-
-It is designed to let you do more with less code.
 
 ### In browser
 
@@ -48,25 +55,34 @@ require("date-format-lite")
 ### Usage
 
 {% highlight javascript %}{% raw %}
-var now = new Date()         // Date {Wed Jul 10 2013 16:47:36 GMT+0300 (EEST)}
-now.format("isoUtcDateTime") // 2013-07-10T13:47:36Z
-now.format("hh:mm")          // 16:47
-now.format("UTC:hh:mm")      // 13:47
+// Format
+var now = new Date()          // Date {Wed Jul 10 2013 16:47:36 GMT+0300 (EEST)}
+now.format("isoUtcDateTime")  // 2013-07-10T13:47:36Z
+now.format("hh:mm")           // 16:47
+now.format("UTC:hh:mm")       // 13:47
 
+// Parse
+"2013-07-10".date()           // Date {Wed Jul 10 2013 03:00:00 GMT+0300 (EEST)} 
+"2013-07-10T13:47:36Z".date() // Date {Wed Jul 10 2013 16:47:36 GMT+0300 (EEST)}
+"10/07/2013".date()           // Date {Wed Jul 10 2013 03:00:00 GMT+0300 (EEST)}
+Date.middle_endian = true
+"10/07/2013".date()           // Date {Mon Oct 07 2013 03:00:00 GMT+0300 (EEST)}
+// Change format
+"10/07/2013".date("YYYY-MM-DD")// 2013-07-10
 {% endraw %}{% endhighlight %}
 
 ### Define default format
 
 {% highlight javascript %}{% raw %}
 Date.masks.default = 'YYYY-MM-DD hh:mm:ss'
-now.format()                 // 2013-07-10 13:47:36
+now.format()                  // 2013-07-10 13:47:36
 {% endraw %}{% endhighlight %}
 
 ### Define custom formats
 
 {% highlight javascript %}{% raw %}
 Date.masks.my = '"DayNo "D'
-now.format("my")             // DayNo 10
+now.format("my")              // DayNo 10
 {% endraw %}{% endhighlight %}
 
 
@@ -76,14 +92,18 @@ now.format("my")             // DayNo 10
 // Add to estonian-lang.js
 Date.dayNames = "P E T K N R L pühapäev esmaspäev teisipäev kolmapäev neljapäev reede laupäev".split(" ")
 Date.monthNames = "Jaan Veeb Märts Apr Mai Juuni Juuli Aug Sept Okt Nov Dets jaanuar veebruar märts aprill mai juuni juuli august september oktoober november detsember".split(" ")
+
+// Change AM and PM
+Date.am = "a.m."
+Date.pm = "p.m."
 {% endraw %}{% endhighlight %}
 
 
-See [tests][3] for more examples
+See [tests][tests] for more examples
 
-## Syntax
+### Syntax
 
-- **YY**    - A two digit representation of a year. Examples: 99 or 03
+- **Y**     - A two digit representation of a year without leading zeros. Examples: 99 or 3
 - **YY**    - A two digit representation of a year. Examples: 99 or 03
 - **YYYY**  - A full numeric representation of a year, 4 digits. Examples: 1999 or 2003
 - **M**     - Numeric representation of a month, without leading zeros. 1 through 12
@@ -106,11 +126,25 @@ See [tests][3] for more examples
 - **SS**    - Milliseconds with leading zeros. 000 to 999
 - **u**     - Milliseconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
 - **U**     - Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
-- **a**     - Lowercase Ante meridiem and Post meridiem. am or pm
-- **A**     - Uppercase Ante meridiem and Post meridiem. AM or PM
+- **A**     - Ante meridiem and Post meridiem. AM or PM
 - **Z**     - Difference to Greenwich time (GMT) with colon between hours and minutes. Example: GMT +02:00
-- **w**     - Week number of year, first week is the week with 4 January in it
-- **"text"** - text
+- **"text"** - text, quotes should be escaped, eg '"a \\"quoted text\\"" YYYY'
+
+###### ISO-8601
+- **w**     - Day of the week. 1 (for Monday) through 7 (for Sunday)
+- **W**     - Week number of year, first week is the week with 4 January in it
+- **o**     - ISO-8601 year number. This has the same value as YYYY, 
+except that if the ISO week number (W) belongs to the previous or next year, 
+that year is used instead
+
+### Notes
+
+- If no UTC relation information is given with a time representation, the time is assumed to be in local time.
+- If the time is in UTC, add a Z directly after the time without a space.
+
+### Browser Support
+
+[![browser support][7]][8]
 
 ### Licence
 

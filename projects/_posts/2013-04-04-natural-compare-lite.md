@@ -34,7 +34,7 @@ Compare strings containing a mix of letters and numbers
 in the way a human being would in sort order.
 This is described as a "natural ordering".
 
-{% highlight plain %}{% raw %}
+{% highlight bash %}{% raw %}
 Standard sorting:   Natural order sorting:
     img1.png            img1.png
     img10.png           img2.png

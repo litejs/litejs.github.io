@@ -1,11 +1,12 @@
-home: http://www.litejs.com
 name: litejs
+home: http://www.litejs.com
 author: Lauri Rooden
 email: lauri@rooden.ee
 paginate: 25
 permalink: /:title/
-markdown: rdiscount
-pygments: true
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 exclude:
 - README.md
 menu:

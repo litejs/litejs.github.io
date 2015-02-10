@@ -1,42 +1,40 @@
 <!DOCTYPE html>
-<html><head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>LiteJS - {{ page.title }}</title>{% if page.summary %}
-	<meta name="description" content="{{ page.summary }}">{% endif %}
-	<link rel="stylesheet" href="/css/default.css" type="text/css">
-	<link rel="stylesheet" href="/css/theme1.css" type="text/css">{% for css in page.css %}
-	<link rel="stylesheet" href="/{{ css }}" type="text/css">{% endfor %}{% for js in page.javascript %}
-	<script type="text/javascript" src="{{ js }}"></script>{% endfor %}
-</head><body>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{{ page.title }}</title>{% if page.summary %}
+		<meta name="description" content="{{ page.summary }}">{% endif %}
+		<link rel="stylesheet" type="text/css" href="/css/index.css">{% for css in page.css %}
+		<link rel="stylesheet" type="text/css" href="{{ css }}">{% endfor %}{% for js in page.javascript %}
+		<script src="{{ js }}"></script>{% endfor %}
+	</head>
+<body>
 
-<ul class=menu>
-	<li{% if page.title == "home" %} class=selected{% endif %}><a href="/">home</a></li>{% for x in site.menu %}
-	<li{% if page.title == x %} class=selected{% endif %}><a href="/{{ x }}/">{{ x }}</a></li>{% endfor %}
-</ul>
-
-<div class=header>
-	<h1><a href="/">LiteJS</a></h1>
-	<h2>Simplicity is the ultimate sophistication. —Leonardo da Vinci</h2>
+<div class=sidebar>
+{% include tag-cloud.html %}
 </div>
 
-<div class=content>
+<div class="gray">
+	<h1>
+		<a class=gray href="{{ site.url }}">{{ site.name | xml_escape }}</a>
+	</h1>
+</div>
+
 {{ content }}
-</div>
 
-<div class=footer>
-	<div class=right>Last updated {{ site.time | date_to_long_string }}</div>
-</div>
+{% capture last_year %}{{ site.posts.first.date | date: "%Y" }}{% endcapture %}
+{% capture first_year %}{{ site.posts.last.date | date: "%Y" }}{% endcapture %}
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-22792206-4']);
-  _gaq.push(['_trackPageview']);
 
-  (function(d) {
-    var ga = d.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == d.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })(document);
+<p>Since {{ first_year }}{% if first_year != last_year %} to {{ last_year }}{% endif %}</p>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create','{{site.ga}}','auto');
+ga('send','pageview');
 </script>
-</body>
-</html>
+
+</body></html>

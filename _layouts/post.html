@@ -1,0 +1,28 @@
+---
+layout: index
+---
+
+{% include published.html %}
+
+<div id="post">
+  {% if page.summary and page.summary.size > 0 %}
+  <div>{{ page.summary }}</div>{% endif %}
+  {{ content }}
+
+{% if page.tags and page.tags.size > 0 %}
+  <hr />
+  <div class="item_tags">Tags:{% for tag in page.tags %}
+    <a href="/tags/{{ tag | replace:'+','%20'}}.html">{{ tag }}</a>{% if forloop.last != true %}, {% endif %}{% endfor %}
+  </div>{% endif %}
+</div>
+
+<p>Have an update or suggestion for this note?
+You can <a href="https://github.com/lauriro/lauriro.github.io/edit/master/{{page.path}}">edit it</a> and send me a pull request.</p>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+{% for post in site.related_posts limit:3 %}{% include post.html %}{% endfor %}
+  </ul>
+</div>
+

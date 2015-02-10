@@ -1,0 +1,36 @@
+---
+layout: index
+javascript:
+- /js/lytebox.js
+css:
+- /css/lytebox.css
+---
+
+{% include published.html %}
+
+<div id="post">
+  <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>{% if post.summary and post.summary.size > 0 %}
+  <div>{{ post.summary }}</div>{% endif %}
+  {{ content }}
+
+<hr/>{% for file in page.files %}
+<a href="{{ page.folder }}{{ file }}" rel="lytebox[album]"><img src="{{ page.folder }}thumbs/{{ file }}" alt="" /></a>{% endfor %}
+
+
+{% if page.tags and page.tags.size > 0 %}
+  <hr />
+    <div class="item_tags">Tags:{% for tag in page.tags %}
+      <a href="/tags/{{ tag }}.html">{{ tag }}</a>{% if forloop.last != true %}, {% endif %}
+      {% endfor %}
+    </div>
+{% endif %}
+</div>
+
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">{% for post in site.related_posts limit:3 %}
+	{% include post.html %}
+	{% endfor %}
+  </ul>
+</div>

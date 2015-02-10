@@ -2,6 +2,7 @@ name: litejs
 home: http://www.litejs.com
 author: Lauri Rooden
 email: lauri@rooden.ee
+ga: UA-22792206-4
 paginate: 25
 permalink: /:title/
 markdown: redcarpet

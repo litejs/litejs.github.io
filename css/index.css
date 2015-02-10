@@ -1,0 +1,134 @@
+@import url("base.css");
+
+body {
+	padding: 0 4em;
+	margin: 0 auto;
+	max-width: 740px;
+	color: #222;
+	font-family: georgia, serif;
+	background: #fff;
+}
+
+::-moz-selection {
+	background-color: #d22;
+	color: #fff;
+	padding: 5px
+}
+
+::selection {
+	background-color: #d22;
+	color: #fff;
+	padding: 5px
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-weight: normal;
+	font-family: georgia, serif;
+	font-style: italic;
+	padding: 1em 0 .5em 0;
+	margin: 0;
+}
+
+h1{
+	font-size: 2.2em;
+}
+
+h2{
+	font-size: 1.8em;
+}
+
+.gray {
+	color: #aaa;
+}
+
+a{color:#069;text-decoration:none;}
+a:hover{color:#023;}
+a:active,a:focus{background-color:#f93;outline:none;}
+
+blockquote {
+	font-family: "Gill Sans", "Trebuchet MS", Calibri, sans-serif;
+	font-size: 18px;
+	font-style: italic;
+	width: 500px;
+	margin: 0.25em 0;
+	padding: 0.25em 40px;
+	line-height: 1.45;
+	position: relative;
+	color: #383838;
+}
+
+blockquote:before {
+	display: block;
+	content: "\201C";
+	font-size: 80px;
+	position: absolute;
+	left: 0px;
+	top: -20px;
+	color: #7a7a7a;
+}
+
+blockquote p {
+	margin: 0 0 .6em 0;
+}
+
+blockquote cite {
+	color: #999999;
+	font-size: 14px;
+	display: block;
+	margin-top: 5px;
+}
+
+blockquote cite:before {
+	content: "\2014 \2009";
+}
+
+.height{
+	float:right;
+	width:1px;
+	height:100%;
+}
+.clear{
+	clear:both;
+}
+
+.rgt {
+	float: right;
+}
+
+.shadow {
+	-moz-box-shadow: 3px 3px 4px #888;
+	-webkit-box-shadow: 3px 3px 4px #888;
+	box-shadow: 3px 3px 4px #888;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#888888')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#888888');
+}
+
+
+.sidebar {
+	float: right;
+	width: 240px;
+	padding: 0 25px;	
+}
+
+.sidebar h3 {
+	border-bottom: 1px dashed #888;
+}
+
+.tag-cloud {
+	padding: 0;
+	font-size: 0.8em;
+	list-style-type: none;
+	text-align: justify;
+}
+
+.tag-cloud li {
+	display: inline;
+}
+
+.count {
+	float: right;
+	color: #888;
+}
+

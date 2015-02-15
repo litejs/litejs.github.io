@@ -2,7 +2,7 @@
 layout: project
 title: liquid-lite
 summary: Lite version of Liquid markup template engine writen in javascript
-tags: [test]
+tags: ["template","engine","liquid","litejs"]
 fork: https://github.com/litejs/liquid-lite
 css:
 - /css/pygments.css

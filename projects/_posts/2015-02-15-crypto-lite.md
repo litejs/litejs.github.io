@@ -2,7 +2,7 @@
 layout: project                                                                 
 title: crypto-lite
 summary: Standard and secure cryptographic algorithms for browser
-tags: [litejs]                                                                    
+tags: ["crypto","sha1","sha256","hmac","pbkdf2"]
 fork: https://github.com/litejs/crypto-lite
 css:                                                                            
 - /css/pygments.css                                                              

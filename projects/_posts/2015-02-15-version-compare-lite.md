@@ -2,7 +2,7 @@
 layout: project
 title: version-compare-lite
 summary: Compare versions
-tags: [litejs]
+tags: ["string","order","sort","version","litejs"]
 fork: https://github.com/litejs/version-compare-lite
 css:
 - /css/pygments.css

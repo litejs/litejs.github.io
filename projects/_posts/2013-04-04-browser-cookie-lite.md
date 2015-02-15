@@ -2,7 +2,7 @@
 layout: project                                                                 
 title: browser-cookie-lite
 summary: Cookie setter/getter for browser
-tags: [litejs]                                                                    
+tags: ["browser","cookie","litejs"]
 fork: https://github.com/litejs/browser-cookie-lite
 css:                                                                            
 - /css/pygments.css                                                              

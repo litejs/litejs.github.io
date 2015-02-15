@@ -2,7 +2,7 @@
 layout: project                                                                 
 title: natural-compare-lite
 summary: Compare strings containing a mix of letters and numbers in the way a human being would in sort order.
-tags: [string, sort, litejs] 
+tags: ["string","natural","order","sort","natsort","natcmp","compare","alphanum","litejs"]
 fork: https://github.com/litejs/natural-compare-lite
 css:                                                                            
 - /css/pygments.css                                                              

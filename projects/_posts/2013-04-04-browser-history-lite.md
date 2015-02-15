@@ -2,7 +2,7 @@
 layout: project                                                                 
 title: browser-history-lite
 summary: History helper for browser
-tags: [litejs]                                                                    
+tags: ["browser","history","litejs"]
 fork: https://github.com/litejs/browser-history-lite
 css:                                                                            
 - /css/pygments.css                                                              

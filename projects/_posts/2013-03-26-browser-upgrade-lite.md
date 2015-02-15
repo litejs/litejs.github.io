@@ -2,7 +2,7 @@
 layout: project                                                                 
 title: browser-upgrade-lite
 summary: Implement new features for old browsers
-tags: [litejs]                                                                    
+tags: ["browser","litejs"]
 fork: https://github.com/litejs/browser-upgrade-lite
 css:                                                                            
 - /css/pygments.css                                                              

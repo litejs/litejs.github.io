@@ -2,7 +2,7 @@
 layout: project                                                                 
 title: browser-event-lite
 summary: Event helper for browser
-tags: [litejs]                                                                    
+tags: ["browser","event","litejs"]
 fork: https://github.com/litejs/browser-event-lite
 css:                                                                            
 - /css/pygments.css                                                              

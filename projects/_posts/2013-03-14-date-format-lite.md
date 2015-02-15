@@ -2,7 +2,7 @@
 layout: project
 title: date-format-lite
 summary: Date format and parser for node.js and browser
-tags: [test]
+tags: ["date","time","format","parse","litejs"]
 fork: https://github.com/litejs/date-format-lite
 css:
 - /css/pygments.css

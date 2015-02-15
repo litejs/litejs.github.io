@@ -2,7 +2,7 @@
 layout: project                                                                 
 title: browser-keymap-lite
 summary: Keyboard shortcuts for browser
-tags: [litejs]                                                                    
+tags: ["keyboard","litejs"]
 fork: https://github.com/litejs/browser-keymap-lite
 css:                                                                            
 - /css/pygments.css                                                              

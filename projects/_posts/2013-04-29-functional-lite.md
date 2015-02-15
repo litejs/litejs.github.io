@@ -2,7 +2,7 @@
 layout: project                                                                 
 title: functional-lite
 summary: Functional Javascript
-tags: [litejs]                                                                    
+tags: ["litejs"]
 fork: https://github.com/litejs/functional-lite
 css:                                                                            
 - /css/pygments.css                                                              

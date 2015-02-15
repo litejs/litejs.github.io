@@ -2,7 +2,7 @@
 layout: project
 title: uri-template-lite
 summary: URI Template [RFC 6570] expansion and extraction
-tags: [litejs]
+tags: ["uri","url","template","uri-template","rfc6570","litejs"]
 fork: https://github.com/litejs/uri-template-lite
 css:
 - /css/pygments.css

@@ -2,7 +2,7 @@
 layout: project
 title: liquid-filters-lite
 summary: Standard Filters for liquid-lite extending native prototypes
-tags: [test]
+tags: ["template","engine","liquid","filters","litejs"]
 fork: https://github.com/litejs/liquid-filters-lite
 css:
 - /css/pygments.css

@@ -2,7 +2,7 @@
 layout: project                                                                 
 title: elements-lite
 summary: DOM buildel for browser
-tags: [litejs]                                                                    
+tags: ["browser","elements","DOM","litejs"]
 fork: https://github.com/litejs/elements-lite
 css:                                                                            
 - /css/pygments.css                                                              

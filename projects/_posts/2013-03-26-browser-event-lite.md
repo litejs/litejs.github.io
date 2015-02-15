@@ -5,7 +5,7 @@ summary: Event helper for browser
 tags: [litejs]                                                                    
 fork: https://github.com/litejs/browser-event-lite
 css:                                                                            
-- css/pygments.css                                                              
+- /css/pygments.css                                                              
 ---                                                                             
 
 [1]: https://raw.github.com/litejs/browser-event-lite/master/min.js
@@ -28,7 +28,8 @@ Usage
 
 Mix `Event.Emitter` to custom object.
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 function MyObj(name) {
     this.name = name
 }
@@ -41,11 +42,13 @@ obj.on("say", function(text) {
 })
 
 obj.emit("say", "hello world")
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 Use in Mediator Pattern.
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 // Define global mediator
 
 var Mediator = Object.create(Event.Emitter)
@@ -58,11 +61,13 @@ Mediator.on("login", function(user, pass) {
 // Emit login event from login view
 Mediator.emit("login", "username", "secretPassword")
 
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 Attach listeners to DOM events
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 function hi(){
 	alert("Hei")
 	// alert just once
@@ -74,7 +79,8 @@ Event.add(el, "click", hi)
 // handle also touch events
 Event.touchAsMouse(el)
 
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 
 ### Licence

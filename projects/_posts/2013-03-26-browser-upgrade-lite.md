@@ -5,7 +5,7 @@ summary: Implement new features for old browsers
 tags: [litejs]                                                                    
 fork: https://github.com/litejs/browser-upgrade-lite
 css:                                                                            
-- css/pygments.css                                                              
+- /css/pygments.css                                                              
 ---                                                                             
 
 [7]: https://ci.testling.com/litejs/browser-upgrade-lite.png
@@ -60,7 +60,8 @@ Browser Support
 -   instanceof is not implemented in IE 5 MAC
 -   Safari 2.0.2: 416     hasOwnProperty introduced October 31, 2005 (Mac OS X v10.4)
 
-    {% highlight javascript %}{% raw %}
+    ```javascript
+{% raw %}
     // Polyfill
     Object.prototype.hasOwnProperty = function(name, obj) {
     	try {
@@ -69,7 +70,8 @@ Browser Support
     	} catch(e) {}
     	return true
     }
-    {% endraw %}{% endhighlight %}
+    {% endraw %}
+```
 
 
 

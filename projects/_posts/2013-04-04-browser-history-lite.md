@@ -5,7 +5,7 @@ summary: History helper for browser
 tags: [litejs]                                                                    
 fork: https://github.com/litejs/browser-history-lite
 css:                                                                            
-- css/pygments.css                                                              
+- /css/pygments.css                                                              
 ---                                                                             
 
 
@@ -22,14 +22,16 @@ Browser history helper.
 
 ### Usage
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 
 function log(route) {
 	console.log("routed to ", route)
 }
 
 history.start(log)
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 External links
 --------------

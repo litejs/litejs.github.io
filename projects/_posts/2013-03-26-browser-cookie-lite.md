@@ -5,7 +5,7 @@ summary: Cookie setter/getter for browser
 tags: [litejs]                                                                    
 fork: https://github.com/litejs/browser-cookie-lite
 css:                                                                            
-- css/pygments.css                                                              
+- /css/pygments.css                                                              
 ---                                                                             
 
 
@@ -23,13 +23,15 @@ Get and set the cookies associated with the current document in browser.
 API
 ---
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 // Get a cookie
 cookie(name) -> String
 
 // Set a cookie
 cookie(name, value, [ttl], [path], [domain], [secure]) -> String
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 -   **name** `String` - The name of the cookie.
 -   **value** `String` - The value of the cookie.
@@ -52,7 +54,8 @@ cookie(name, value, [ttl], [path], [domain], [secure]) -> String
 Examples
 --------
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 // simple set
 cookie("test", "a")
 // complex set - cookie(name, value, ttl, path, domain, secure)
@@ -61,7 +64,8 @@ cookie("test", "a", 60*60*24, "/api", "*.example.com", true)
 cookie("test")
 // destroy
 cookie("test", "", -1)
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 
 Notes

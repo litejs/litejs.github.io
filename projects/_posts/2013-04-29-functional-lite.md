@@ -5,7 +5,7 @@ summary: Functional Javascript
 tags: [litejs]                                                                    
 fork: https://github.com/litejs/functional-lite
 css:                                                                            
-- css/pygments.css                                                              
+- /css/pygments.css                                                              
 ---                                                                             
 [GitHub repo]: https://github.com/litejs/functional-lite
 [npm module]: https://npmjs.org/package/functional-lite
@@ -37,7 +37,8 @@ Examples
 
 Extends String and Function with "every filter each map fold foldr some"
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 // _ is default first argument name when no arguments defined
 
 "_ + 1".map([1, 2, 3])
@@ -46,7 +47,8 @@ Extends String and Function with "every filter each map fold foldr some"
 // is equal to
 [1, 2, 3].map(Fn("_ + 1"))
 // [2, 3, 4]
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 ### Browser Support
 

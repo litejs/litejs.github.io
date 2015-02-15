@@ -5,7 +5,7 @@ summary: Keyboard shortcuts for browser
 tags: [litejs]                                                                    
 fork: https://github.com/litejs/browser-keymap-lite
 css:                                                                            
-- css/pygments.css                                                              
+- /css/pygments.css                                                              
 ---                                                                             
 
 [1]: https://raw.github.com/litejs/browser-keymap-lite/master/min.browser-keymap.js
@@ -28,7 +28,8 @@ or [uncompressed][2] source.
 
 ### Usage
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 var keyMap = {
 	H: function(event, key) {
 		// metacode
@@ -58,7 +59,8 @@ var subViewKeyMap = {
 // attach default keymap
 Event.setKeyMap(keyMap)
 
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 
 ### Licence

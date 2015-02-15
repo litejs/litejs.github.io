@@ -5,7 +5,7 @@ summary: Standard and secure cryptographic algorithms for browser
 tags: [litejs]                                                                    
 fork: https://github.com/litejs/crypto-lite
 css:                                                                            
-- css/pygments.css                                                              
+- /css/pygments.css                                                              
 ---                                                                             
 
 [Build]:    http://img.shields.io/travis/litejs/crypto-lite.png
@@ -28,7 +28,8 @@ Lite version of sha1, sha256, hmac, pbkdf2 writen in javascript.
 
 ## How to use in browser
 
-{% highlight html %}{% raw %}
+```html
+{% raw %}
 <script src=crypto-lite.js></script>
 
 <script>
@@ -43,7 +44,8 @@ crypto.hmac("sha256", "key", "message")
 crypto.pbkdf2Sync("password", "salt", 1, 20)
 // 0c60c80f961f0e71f3a9b524af6012062fe037a6
 </script>
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 
 ## How to use in node.js
@@ -52,10 +54,12 @@ Although it should work in node.js, you should [use native][4] api there.
 
 npm install crypto-lite
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 var crypto = require("crypto-lite").crypto
 
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 
 External links

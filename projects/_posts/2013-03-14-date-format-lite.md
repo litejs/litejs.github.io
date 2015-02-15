@@ -5,7 +5,7 @@ summary: Date format and parser for node.js and browser
 tags: [test]
 fork: https://github.com/litejs/date-format-lite
 css:
-- css/pygments.css
+- /css/pygments.css
 ---
 [1]: https://secure.travis-ci.org/litejs/date-format-lite.png
 [2]: https://travis-ci.org/litejs/date-format-lite
@@ -30,22 +30,27 @@ that extends native Date object.
 
 ### In browser
 
-{% highlight html %}{% raw %}
+```html
+{% raw %}
 <script src=date-format.js></script>
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 ### In node.js
 
 npm install date-format-lite
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 require("date-format-lite")
 
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 ### Usage
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 // Format
 var now = new Date()          // Date {Wed Jul 10 2013 16:47:36 GMT+0300 (EEST)}
 now.format("isoUtcDateTime")  // 2013-07-10T13:47:36Z
@@ -60,26 +65,32 @@ Date.middleEndian = true
 "10/07/2013".date()           // Date {Mon Oct 07 2013 03:00:00 GMT+0300 (EEST)}
 // Change format
 "10/07/2013".date("YYYY-MM-DD")// 2013-07-10
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 ### Define default format
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 Date.masks.default = 'YYYY-MM-DD hh:mm:ss'
 now.format()                  // 2013-07-10 13:47:36
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 ### Define custom formats
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 Date.masks.my = '"DayNo "D'
 now.format("my")              // DayNo 10
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 
 ### Use another language
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 // Add to estonian-lang.js
 Date.dayNames = "P E T K N R L pühapäev esmaspäev teisipäev kolmapäev neljapäev reede laupäev".split(" ")
 Date.monthNames = "Jaan Veeb Märts Apr Mai Juuni Juuli Aug Sept Okt Nov Dets jaanuar veebruar märts aprill mai juuni juuli august september oktoober november detsember".split(" ")
@@ -87,7 +98,8 @@ Date.monthNames = "Jaan Veeb Märts Apr Mai Juuni Juuli Aug Sept Okt Nov Dets ja
 // Change AM and PM
 Date.am = "a.m."
 Date.pm = "p.m."
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 
 See [tests][tests] for more examples

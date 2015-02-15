@@ -5,7 +5,7 @@ summary: Standard Filters for liquid-lite extending native prototypes
 tags: [test]
 fork: https://github.com/litejs/liquid-filters-lite
 css:
-- css/pygments.css
+- /css/pygments.css
 ---
 [1]: https://secure.travis-ci.org/litejs/liquid-filters-lite.png
 [2]: https://travis-ci.org/litejs/liquid-filters-lite
@@ -38,11 +38,13 @@ Currently supported filters
 
 - **date** - reformat a date syntax reference  
     Require [date-format-lite][]
-    {% highlight javascript %}{% raw %}
+    ```javascript
+{% raw %}
     var item = { "timestamp": 1363770186, "datetime": "2013-03-20T09:03:06Z" }
     {{ timestamp | date:"isoUtcDateTime" }}
     {{ datetime | date:"hh:mm" }}
-    {% endraw %}{% endhighlight %}
+    {% endraw %}
+```
 
 -   **capitalize** - capitalize words in the input sentence
 -   **downcase** - convert an input string to lowercase
@@ -56,10 +58,12 @@ Currently supported filters
 -   **size** - return the size of an array or string
 -   **replace** - replace the first or each occurrence. 
     `Native in javascript`
-    {% highlight javascript %}{% raw %}
+    ```javascript
+{% raw %}
     {{ 'foofoo' | replace:'foo','bar' }} #=> 'barfoo'
     {{ 'foofoo' | replace:/foo/g,'bar' }} #=> 'barbar'
-    {% endraw %}{% endhighlight %}
+    {% endraw %}
+```
 -   **remove** - remove each occurrence e.g. {{ 'foobarfoobar' | remove:'foo' }} #=> 'barbar'
 -   **split** - split a string on a matching pattern e.g. {{ "a~b" | split:~ }} #=> ['a','b'].
     `Native in javascript`

@@ -50,8 +50,7 @@ projects: $(wildcard projects/_posts/*.md)
 projects/_posts/%.md: Makefile
 	sed -i '1b;/^---/q' $@
 	curl -sS "https://raw.githubusercontent.com/litejs/`sed -n '/^title: /s///p' $@`/master/README.md" |\
-	sed 's/```\(..*\)/{% highlight \1 %}{% raw %}/' |\
-	sed 's/```/{% endraw %}{% endhighlight %}/' >> $@
+	sed 's/```\(..*\)/\0\n{% raw %}/;t;s/```/{% endraw %}\n\0/' >> $@
 
 
 test:

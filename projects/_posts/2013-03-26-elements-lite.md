@@ -5,7 +5,7 @@ summary: DOM buildel for browser
 tags: [litejs]                                                                    
 fork: https://github.com/litejs/elements-lite
 css:                                                                            
-- css/pygments.css                                                              
+- /css/pygments.css                                                              
 ---                                                                             
 [1]: https://secure.travis-ci.org/litejs/elements-lite.png
 [2]: https://travis-ci.org/litejs/elements-lite
@@ -30,7 +30,8 @@ Usage
 
 ### Create elements one by one
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 El("div", "test").to(document.body)
 //<div>test</div>
 
@@ -42,7 +43,8 @@ El("a", {id:"link", href:"/home"}).append("Home").to(document.body)
 
 El(".custom", "test").to(document.body)
 //<div class="custom">test</div>
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 
 ### Templates
@@ -57,67 +59,83 @@ By default, text at the start of a line (or after only white space) represents a
 Indented tags are nested, creating the tree like structure of html.
 
 
-{% highlight html %}{% raw %}
+```html
+{% raw %}
 ul
   li Item A
   li Item B
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 becomes
 
-{% highlight html %}{% raw %}
+```html
+{% raw %}
 <ul>
   <li>Item A</li>
   <li>Item B</li>
 </ul>
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 From CSS Class selectors, ID selectors, Pseudo-classes selectors
 and Attribute selectors are supported.
 
-{% highlight html %}{% raw %}
+```html
+{% raw %}
 a#123.link.bold[href="#A"][title=go] link
 button:disabled
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 becomes
 
-{% highlight html %}{% raw %}
+```html
+{% raw %}
 <a id="123" class="link bold" href="#A" title="go">link</a>
 <button disabled="disabled"></button>
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 
 To save space you can use an inline syntax for nested tags.
 
-{% highlight html %}{% raw %}
+```html
+{% raw %}
 a>i text
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 becomes
 
-{% highlight html %}{% raw %}
+```html
+{% raw %}
 <a><i>text</i></a>
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 #### Inline templates
 
-{% highlight html %}{% raw %}
+```html
+{% raw %}
 ul.list
   @template my-row
     li.my-row > b row
   my-row
   my-row
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 becomes
 
-{% highlight html %}{% raw %}
+```html
+{% raw %}
 <ul class="list">
   <li class="my-row"><b>row</b></li>
   <li class="my-row"><b>row</b></li>
 </ul>
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 
 

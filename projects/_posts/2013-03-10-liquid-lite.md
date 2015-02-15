@@ -5,7 +5,7 @@ summary: Lite version of Liquid markup template engine writen in javascript
 tags: [test]
 fork: https://github.com/litejs/liquid-lite
 css:
-- css/pygments.css
+- /css/pygments.css
 ---
 
 [1]: https://github.com/Shopify/liquid/ "Shopify in github"
@@ -34,7 +34,8 @@ A complete port is available [by darthapo][5].
 
 ## How to use in browser
 
-{% highlight html %}{% raw %}
+```html
+{% raw %}
 <script src=liquid-lite.js></script>
 
 <script id=products type="text/liquid">
@@ -63,7 +64,8 @@ var data = { products:
 
 document.getElementById("page").innerHTML = template(data)
 </script>
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 See [test.html][2] for more examples
 
@@ -71,7 +73,8 @@ See [test.html][2] for more examples
 
 npm install liquid-lite
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 var liquid = require("liquid-lite").liquid
 
 var template = liquid( my_template_string )
@@ -84,24 +87,28 @@ var data = { products:
 }
 
 var output = template(data)
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 ## Tags
 
 ### if / elsif / else
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 {% if user %}
   Hello {{ user.name }}
 {% endif %}
 {% if user.name == "bob" %}
   Hello Bob
 {% endif %}
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 ### for
 
-{% highlight javascript %}{% raw %}
+```javascript
+{% raw %}
 {% for product in products %}
   {{ product.title }}
 {% endfor %}
@@ -113,7 +120,8 @@ var output = template(data)
 {% for item in ["a", "b", "c"] %}
   {{ item }}
 {% endfor %}
-{% endraw %}{% endhighlight %}
+{% endraw %}
+```
 
 The following helper variables are available:
 
@@ -129,32 +137,40 @@ or use [liquid-filters-lite][].
 
 - **date** - reformat a date syntax reference  
     Implemented in [date-format-lite][]
-    {% highlight javascript %}{% raw %}
+    ```javascript
+{% raw %}
     var item = { "timestamp": 1363770186, "datetime": "2013-03-20T09:03:06Z" }
     {{ timestamp | date:"isoUtcDateTime" }}
     {{ datetime | date:"hh:mm" }}
-    {% endraw %}{% endhighlight %}
+    {% endraw %}
+```
 
 - **capitalize** - capitalize words in the input sentence
-    {% highlight javascript %}{% raw %}
+    ```javascript
+{% raw %}
     String.prototype.capitalize = function() {
       return this.charAt(0).toUpperCase() + this.slice(1)
     }
-    {% endraw %}{% endhighlight %}
+    {% endraw %}
+```
 
 - **downcase** - convert an input string to lowercase
-    {% highlight javascript %}{% raw %}
+    ```javascript
+{% raw %}
     String.prototype.downcase = String.prototype.toLowerCase
-    {% endraw %}{% endhighlight %}
+    {% endraw %}
+```
 
 See [liquid-filters-lite][] for more examples
 
 ## Notes
 
 -   You can access to properties named by reserved words thru _0 object.
-    {% highlight javascript %}{% raw %}
+    ```javascript
+{% raw %}
     {% for val in _0["enum"] %}
-    {% endraw %}{% endhighlight %}
+    {% endraw %}
+```
 
 ### Licence
 

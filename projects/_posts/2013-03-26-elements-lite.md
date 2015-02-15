@@ -7,32 +7,35 @@ fork: https://github.com/litejs/elements-lite
 css:                                                                            
 - css/pygments.css                                                              
 ---                                                                             
+[1]: https://secure.travis-ci.org/litejs/elements-lite.png
+[2]: https://travis-ci.org/litejs/elements-lite
+[3]: https://coveralls.io/repos/litejs/elements-lite/badge.png
+[4]: https://coveralls.io/r/litejs/elements-lite
 
-[1]: https://raw.github.com/litejs/elements-lite/master/min.elements.js
-[2]: https://raw.github.com/litejs/elements-lite/master/elements.js
 
-
-    @version    0.1.14
-    @date       2014-01-02
+    @version    0.5.1
+    @date       2015-02-03
     @stability  1 - Experimental
 
 
-Elements
+Elements &ndash; [![Build][1]][2] [![Coverage][3]][4]
 ========
 
-DOM builder for browser.
-Download [compressed][1] 
-(2777 bytes, 1230 bytes gzipped)
-or [uncompressed][2] source.
+Syntax follows CSS Selectors where possible.
 
-
-### Usage
+Usage
+-----
 
 `<script src=elements-lite.js></script>` should place inside body.
+
+### Create elements one by one
 
 {% highlight javascript %}{% raw %}
 El("div", "test").to(document.body)
 //<div>test</div>
+
+El("a#link[href='/home']", "Home").to(document.body)
+//<a id="link" href="/home">Home</a>
 
 El("a", {id:"link", href:"/home"}).append("Home").to(document.body)
 //<a id="link" href="/home">Home</a>
@@ -42,9 +45,100 @@ El(".custom", "test").to(document.body)
 {% endraw %}{% endhighlight %}
 
 
+### Templates
+
+It is a template engine inspired by Haml
+but uses CSS selectors like syntax for describing elements and attributes.
+
+
+#### Tags
+
+By default, text at the start of a line (or after only white space) represents an html tag. 
+Indented tags are nested, creating the tree like structure of html.
+
+
+{% highlight html %}{% raw %}
+ul
+  li Item A
+  li Item B
+{% endraw %}{% endhighlight %}
+
+becomes
+
+{% highlight html %}{% raw %}
+<ul>
+  <li>Item A</li>
+  <li>Item B</li>
+</ul>
+{% endraw %}{% endhighlight %}
+
+From CSS Class selectors, ID selectors, Pseudo-classes selectors
+and Attribute selectors are supported.
+
+{% highlight html %}{% raw %}
+a#123.link.bold[href="#A"][title=go] link
+button:disabled
+{% endraw %}{% endhighlight %}
+
+becomes
+
+{% highlight html %}{% raw %}
+<a id="123" class="link bold" href="#A" title="go">link</a>
+<button disabled="disabled"></button>
+{% endraw %}{% endhighlight %}
+
+
+To save space you can use an inline syntax for nested tags.
+
+{% highlight html %}{% raw %}
+a>i text
+{% endraw %}{% endhighlight %}
+
+becomes
+
+{% highlight html %}{% raw %}
+<a><i>text</i></a>
+{% endraw %}{% endhighlight %}
+
+#### Inline templates
+
+{% highlight html %}{% raw %}
+ul.list
+  @template my-row
+    li.my-row > b row
+  my-row
+  my-row
+{% endraw %}{% endhighlight %}
+
+becomes
+
+{% highlight html %}{% raw %}
+<ul class="list">
+  <li class="my-row"><b>row</b></li>
+  <li class="my-row"><b>row</b></li>
+</ul>
+{% endraw %}{% endhighlight %}
+
+
+
+Browser Support
+---------------
+
+It should work IE6 and up but automated testing is currently broken.
+
+
+
+External links
+--------------
+
+-   [Source-code on Github](https://github.com/litejs/elements-lite)
+-   [Package on npm](https://npmjs.org/package/elements-lite)
+
+
+
 ### Licence
 
-Copyright (c) 2012 Lauri Rooden &lt;lauri@rooden.ee&gt;  
+Copyright (c) 2012-2015 Lauri Rooden &lt;lauri@rooden.ee&gt;  
 [The MIT License](http://lauri.rooden.ee/mit-license.txt)
 
 

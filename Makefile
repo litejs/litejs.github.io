@@ -24,7 +24,7 @@ endef
 
 export TAG
 
-.PHONY: tags
+.PHONY: tags projects
 
 all: tags
 
@@ -44,9 +44,12 @@ tags/*.md:
 	echo $@
 
 
+projects: $(wildcard projects/_posts/*.md)
+
+
 projects/_posts/%.md: Makefile
 	sed -i '1b;/^---/q' $@
-	curl -sS "https://raw.github.com/litejs/`sed -n '/^title: /s///p' $@`/master/README.md" |\
+	curl -sS "https://raw.githubusercontent.com/litejs/`sed -n '/^title: /s///p' $@`/master/README.md" |\
 	sed 's/```\(..*\)/{% highlight \1 %}{% raw %}/' |\
 	sed 's/```/{% endraw %}{% endhighlight %}/' >> $@
 

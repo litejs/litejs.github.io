@@ -7,32 +7,23 @@ fork: https://github.com/litejs/date-format-lite
 css:
 - css/pygments.css
 ---
-
 [1]: https://secure.travis-ci.org/litejs/date-format-lite.png
 [2]: https://travis-ci.org/litejs/date-format-lite
 [3]: https://coveralls.io/repos/litejs/date-format-lite/badge.png
 [4]: https://coveralls.io/r/litejs/date-format-lite
-[5]: https://nodei.co/npm/date-format-lite.png
-[6]: https://nodei.co/npm/date-format-lite/
-[7]: https://ci.testling.com/litejs/date-format-lite.png
-[8]: https://ci.testling.com/litejs/date-format-lite
-[src]: https://raw.github.com/litejs/date-format-lite/master/date-format.js
-[min]: https://raw.github.com/litejs/date-format-lite/master/min.date-format.js
 [tests]: https://raw.github.com/litejs/date-format-lite/master/tests/run.js "tests/run.js"
 
+
+    @version    0.6.0
+    @date       2014-11-13
+    @stability  1 - Experimental
 
 
 Date format &ndash; [![Build][1]][2] [![Coverage][3]][4]
 ===========
 
-[![NPM][5]][6]
-
 Lite version of Date format and parse for node.js and browser
-that extends native objects.
-Download [compressed][min] 
-(2031 bytes, 1130 bytes gzipped)
-or [uncompressed][src] source.
-
+that extends native Date object.
 
 
 ## How to use
@@ -65,7 +56,7 @@ now.format("UTC:hh:mm")       // 13:47
 "2013-07-10".date()           // Date {Wed Jul 10 2013 03:00:00 GMT+0300 (EEST)} 
 "2013-07-10T13:47:36Z".date() // Date {Wed Jul 10 2013 16:47:36 GMT+0300 (EEST)}
 "10/07/2013".date()           // Date {Wed Jul 10 2013 03:00:00 GMT+0300 (EEST)}
-Date.middle_endian = true
+Date.middleEndian = true
 "10/07/2013".date()           // Date {Mon Oct 07 2013 03:00:00 GMT+0300 (EEST)}
 // Change format
 "10/07/2013".date("YYYY-MM-DD")// 2013-07-10
@@ -142,13 +133,24 @@ that year is used instead
 - If no UTC relation information is given with a time representation, the time is assumed to be in local time.
 - If the time is in UTC, add a Z directly after the time without a space.
 
+### ToDo
+
+- [ ] Add timezone support for Date.format
+
 ### Browser Support
 
-[![browser support][7]][8]
+It should work IE6 and up but automated testing is currently broken.
+
+
+Links
+-----
+
+-   [Source-code on Github](https://github.com/litejs/date-format-lite)
+-   [Package on npm](https://npmjs.org/package/date-format-lite)
 
 ### Licence
 
-Copyright (c) 2012 Lauri Rooden &lt;lauri@rooden.ee&gt;  
+Copyright (c) 2012-2014 Lauri Rooden &lt;lauri@rooden.ee&gt;  
 [The MIT License](http://lauri.rooden.ee/mit-license.txt)
 
 

@@ -12,36 +12,74 @@ css:
 [2]: https://raw.github.com/litejs/browser-event-lite/master/index.js
 
 
-    @version  0.1.3
-    @date     2014-01-20
+    @version  0.2.1
+    @date     2015-01-28
 
 
 Event
 =====
 
-Browser event helper.
-Download [compressed][1] 
-or [uncompressed][2] source.
+`Event.Emitter` can be mixed in to any object,
+giving the object the ability to emit named events.
 
 
-### Usage
+Usage
+-----
+
+Mix `Event.Emitter` to custom object.
+
+{% highlight javascript %}{% raw %}
+function MyObj(name) {
+    this.name = name
+}
+Object.assign(MyObj.prototype, Event.Emitter)
+
+var obj = new MyObj("obj1")
+
+obj.on("say", function(text) {
+    console.log(this.name + " says: " + text)
+})
+
+obj.emit("say", "hello world")
+{% endraw %}{% endhighlight %}
+
+Use in Mediator Pattern.
+
+{% highlight javascript %}{% raw %}
+// Define global mediator
+
+var Mediator = Object.create(Event.Emitter)
+
+// Listen login events in login controller
+Mediator.on("login", function(user, pass) {
+    // login code
+})
+
+// Emit login event from login view
+Mediator.emit("login", "username", "secretPassword")
+
+{% endraw %}{% endhighlight %}
+
+Attach listeners to DOM events
 
 {% highlight javascript %}{% raw %}
 function hi(){
-	alert("Hei")	
+	alert("Hei")
 	// alert just once
 	Event.remove(el, "click", hi)
 }
 
+var el = document.getElementById("foo")
 Event.add(el, "click", hi)
 // handle also touch events
-Event.touch_as_mouse(el) 
+Event.touchAsMouse(el)
+
 {% endraw %}{% endhighlight %}
 
 
 ### Licence
 
-Copyright (c) 2012 Lauri Rooden &lt;lauri@rooden.ee&gt;  
+Copyright (c) 2013-2015 Lauri Rooden &lt;lauri@rooden.ee&gt;  
 [The MIT License](http://lauri.rooden.ee/mit-license.txt)
 
 

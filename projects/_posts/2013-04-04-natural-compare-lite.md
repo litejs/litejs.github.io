@@ -10,31 +10,24 @@ css:
 
 [Build]:    http://img.shields.io/travis/litejs/natural-compare-lite.png
 [Coverage]: http://img.shields.io/coveralls/litejs/natural-compare-lite.png
-[Gittip]:   http://img.shields.io/gittip/lauriro.png
 [1]: https://travis-ci.org/litejs/natural-compare-lite
 [2]: https://coveralls.io/r/litejs/natural-compare-lite
-[3]: https://www.gittip.com/lauriro/
-
-[7]: https://ci.testling.com/litejs/natural-compare-lite.png
-[8]: https://ci.testling.com/litejs/natural-compare-lite
-[src]: https://raw.github.com/litejs/natural-compare-lite/master/min.natural-compare.js
-[min]: https://raw.github.com/litejs/natural-compare-lite/master/natural-compare.js
 
 
 
-    @version    0.4.6
-    @date       2014-01-27
-    @stability  2 - Unstable
+    @version    1.3.0
+    @date       2014-11-29
+    @stability  3 - Stable
 
 
-Natural Compare &ndash; [![Build][]][1] [![Coverage][]][2] [![Gittip][]][3]
+Natural Compare &ndash; [![Build][]][1] [![Coverage][]][2]
 ===============
 
 Compare strings containing a mix of letters and numbers
 in the way a human being would in sort order.
 This is described as a "natural ordering".
 
-{% highlight bash %}{% raw %}
+{% highlight plain %}{% raw %}
 Standard sorting:   Natural order sorting:
     img1.png            img1.png
     img10.png           img2.png
@@ -42,15 +35,10 @@ Standard sorting:   Natural order sorting:
     img2.png            img12.png
 {% endraw %}{% endhighlight %}
 
-String.naturalCompare returns a number indicating 
-whether a reference string comes before or after or is the same 
-as the given string in sort order. 
+String.naturalCompare returns a number indicating
+whether a reference string comes before or after or is the same
+as the given string in sort order.
 Use it with builtin sort() function.
-
-
-Download [compressed][min] 
-(310 bytes, 236 bytes gzipped)
-or [uncompressed][src] source.
 
 
 
@@ -107,20 +95,33 @@ a.sort(function(a, b){
 })
 {% endraw %}{% endhighlight %}
 
-- Removes leading zeros so "a 1" and "a 001" are equal.
 - Works well with dates in ISO format eg "Rev 2012-07-26.doc".
 
 
-### Browser Support
+### Custom alphabet
 
-[![browser support][7]][8]
+It is possible to configure a custom alphabet
+to achieve a desired order.
+
+{% highlight javascript %}{% raw %}
+// Estonian alphabet
+String.alphabet = "ABDEFGHIJKLMNOPRSŠZŽTUVÕÄÖÜXYabdefghijklmnoprsšzžtuvõäöüxy"
+["t", "z", "x", "õ"].sort(String.naturalCompare)
+// ["z", "t", "õ", "x"]
+
+// Russian alphabet
+String.alphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+["Ё", "А", "Б"].sort(String.naturalCompare)
+// ["А", "Б", "Ё"]
+{% endraw %}{% endhighlight %}
 
 
 External links
 --------------
 
-- [jsperf test](http://jsperf.com/natural-sort-2/7)
-- [npmjs.org/package/natural-compare-lite](https://npmjs.org/package/natural-compare-lite)
+-   [Source-code on Github](https://github.com/litejs/natural-compare-lite)
+-   [Package on npm](https://npmjs.org/package/natural-compare-lite)
+-   [jsperf test](http://jsperf.com/natural-sort-2/12)
 
 
 Licence

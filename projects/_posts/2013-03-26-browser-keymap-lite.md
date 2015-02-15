@@ -12,9 +12,10 @@ css:
 [2]: https://raw.github.com/litejs/browser-keymap-lite/master/browser-keymap.js
 
 
-    @version  0.1.4
-    @date     2013-07-13
+    @version  0.0.4
+    @date     2014-05-16
 
+**THIS IS NO LONGER MAINTAINED AND WILL BE DELETED IN THE NEAR FUTURE, USE browser-event-lite INSTEAD**
 
 Browser Keymap
 ==============

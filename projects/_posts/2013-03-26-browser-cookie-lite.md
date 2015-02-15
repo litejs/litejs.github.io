@@ -7,22 +7,18 @@ fork: https://github.com/litejs/browser-cookie-lite
 css:                                                                            
 - css/pygments.css                                                              
 ---                                                                             
-[GitHub repo]: https://github.com/litejs/browser-cookie-lite
-[npm module]: https://npmjs.org/package/browser-cookie-lite
-[rfc-6265]: http://tools.ietf.org/html/rfc6265
 
 
-
-    @version    0.3.1
-    @date       2014-02-25
-    @stability  2 - Unstable
+    @version    1.0.2
+    @date       2014-09-02
+    @stability  3 - Stable
 
 
 
 Browser Cookie Lite
 ===================
 
-Cookie setter/getter for browser
+Get and set the cookies associated with the current document in browser.
 
 API
 ---
@@ -79,6 +75,7 @@ Notes
 
 -   Unless sent over a secure channel (such as HTTPS),
     the information in cookies is transmitted in the clear text.
+
     1.  All sensitive information conveyed in these headers is exposed to
         an eavesdropper.
     2.  A malicious intermediary could alter the headers as they travel
@@ -86,20 +83,30 @@ Notes
     3.  A malicious client could alter the Cookie header before
         transmission, with unpredictable results.
 
+-   RFC 2109 section 6.3 recommended minimum limitations:
+
+    1.  At least 4096 bytes per cookie.
+    2.  At least 20 cookies per unique host or domain name.
+    3.  At least 300 cookies total.
+
+    Setting more than 20 cookies per host may results in the oldest cookie being lost.
+
+    RFC 6265 raises limits for at least 50 cookies per domain and 3000 cookies total.
 
 
 External links
 --------------
 
--   [GitHub repo][]
--   [npm module][]
--   [rfc-6265][]
+-   [Source-code on Github](https://github.com/litejs/browser-cookie-lite)
+-   [Package on npm](https://npmjs.org/package/browser-cookie-lite)
+-   [RFC 2109 - HTTP State Management Mechanism](http://tools.ietf.org/html/rfc2109)
+-   [RFC 6265 - HTTP State Management Mechanism](http://tools.ietf.org/html/rfc6265)
 
 
 
 ### Licence
 
-Copyright (c) 2012 Lauri Rooden &lt;lauri@rooden.ee&gt;  
+Copyright (c) 2012, 2014 Lauri Rooden &lt;lauri@rooden.ee&gt;  
 [The MIT License](http://lauri.rooden.ee/mit-license.txt)
 
 

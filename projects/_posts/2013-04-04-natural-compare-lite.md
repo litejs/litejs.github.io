@@ -12,6 +12,8 @@ css:
 [Coverage]: http://img.shields.io/coveralls/litejs/natural-compare-lite.png
 [1]: https://travis-ci.org/litejs/natural-compare-lite
 [2]: https://coveralls.io/r/litejs/natural-compare-lite
+[npm package]: https://npmjs.org/package/natural-compare-lite
+[GitHub repo]: https://github.com/litejs/natural-compare-lite
 
 
 
@@ -87,7 +89,7 @@ a.sort(function(a, b){
 
 // When text transformation is needed (eg toLowerCase()),
 // it is best for performance to keep
-// transformed key in that object. 
+// transformed key in that object.
 // There are no need to do text transformation
 // on each comparision when sorting.
 var a = [ {"make":"Audi", "model":"A6"}
@@ -129,8 +131,8 @@ String.alphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬ�
 External links
 --------------
 
--   [Source-code on Github](https://github.com/litejs/natural-compare-lite)
--   [Package on npm](https://npmjs.org/package/natural-compare-lite)
+-   [GitHub repo][]
+-   [npm package][]
 -   [jsperf test](http://jsperf.com/natural-sort-2/12)
 
 

@@ -11,8 +11,8 @@ css:
 [GitHub repo]: https://github.com/litejs/browser-upgrade-lite
 
 
-    @version    1.1.4
-    @date       2015-03-01
+    @version    1.1.5
+    @date       2015-03-10
     @stability  3 - Stable
 
 
@@ -26,7 +26,7 @@ Implement EcmaScript 5 methods for older browsers.
 Contains
 --------
 
-- Functionprototype.bind
+- Function.prototype.bind
 - Object.keys
 - Object.create
 - Array.isArray

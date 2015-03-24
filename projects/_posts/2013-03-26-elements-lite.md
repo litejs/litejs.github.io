@@ -13,8 +13,8 @@ css:
 [4]: https://coveralls.io/r/litejs/elements-lite
 
 
-    @version    0.6.0
-    @date       2015-03-13
+    @version    0.6.1
+    @date       2015-03-21
     @stability  1 - Experimental
 
 
@@ -146,6 +146,33 @@ ul[data-bind="class: 'red', list.count > 5; each: row in list"]
   li[data-bind="txt: row"]
 {% endraw %}
 ```
+
+.. is equal to
+
+```html
+{% raw %}
+ul &class: "red", list.count > 5; each: row in list
+  li[data-bind="txt: row"]
+{% endraw %}
+```
+
+Add custom bindings
+
+```javascript
+{% raw %}
+El.bindings.enabled = function(node, data, enabled) {
+    node.disabled = !enabled
+}
+{% endraw %}
+```
+
+```html
+{% raw %}
+ul &enabled: list.count > 5
+  li[data-bind="txt: row"]
+{% endraw %}
+```
+
 
 Browser Support
 ---------------

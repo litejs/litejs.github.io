@@ -14,51 +14,63 @@ css:
 [tests]: https://raw.github.com/litejs/date-format-lite/master/tests/run.js "tests/run.js"
 
 
-    @version    0.6.0
-    @date       2014-11-13
-    @stability  1 - Experimental
+    @version    0.7.1
+    @date       2015-03-21
+    @stability  2 - Unstable
 
 
 Date format &ndash; [![Build][1]][2] [![Coverage][3]][4]
 ===========
 
-Lite version of Date format and parse for node.js and browser
+A small library for parsing and formatting dates
 that extends native Date object.
 
 
-## How to use
+Install
+-------
 
-### In browser
-
-```html
-{% raw %}
-<script src=date-format.js></script>
-{% endraw %}
-```
-
-### In node.js
-
-npm install date-format-lite
+npm install date-format-lite --save
 
 ```javascript
 {% raw %}
 require("date-format-lite")
-
 {% endraw %}
 ```
 
-### Usage
+
+Format Dates
+------------
+
+`date-format-lite` adds `format(mask, [zone])` method to native `Date.prototype`.
+
+-   **mask** `String` - Output format, e.g. `hh:mm:ss`.
+-   **zone** `Number, optional` - UTC offset in hours, e.g. `-6.5`.
 
 ```javascript
 {% raw %}
-// Format
 var now = new Date()          // Date {Wed Jul 10 2013 16:47:36 GMT+0300 (EEST)}
-now.format("isoUtcDateTime")  // 2013-07-10T13:47:36Z
-now.format("hh:mm")           // 16:47
+now.format("iso")             // 2013-07-10T13:47:36Z
+now.format("hh:mm")           // 16:47 (local time)
 now.format("UTC:hh:mm")       // 13:47
+now.format("hh:mm", 2.5)      // 16:17
+{% endraw %}
+```
 
-// Parse
-"2013-07-10".date()           // Date {Wed Jul 10 2013 03:00:00 GMT+0300 (EEST)} 
+
+Parse Dates
+-----------
+
+`date-format-lite` adds `date([outFormat], [outZone], [inZone])` method
+to native `String.prototype` and `Number.prototype`.
+
+-   **outFormat** `String, optional` - Output format, e.g. `hh:mm:ss`.
+    Returns date object when format not specified.
+-   **outZone** `Number, optional` - UTC offset for output in hours, e.g. `-6.5`.
+-   **inZone** `Number, optional` - UTC offset in input in hours, e.g. `-6.5`.
+
+```javascript
+{% raw %}
+"2013-07-10".date()           // Date {Wed Jul 10 2013 03:00:00 GMT+0300 (EEST)}
 "2013-07-10T13:47:36Z".date() // Date {Wed Jul 10 2013 16:47:36 GMT+0300 (EEST)}
 "10/07/2013".date()           // Date {Wed Jul 10 2013 03:00:00 GMT+0300 (EEST)}
 Date.middleEndian = true
@@ -68,16 +80,9 @@ Date.middleEndian = true
 {% endraw %}
 ```
 
-### Define default format
 
-```javascript
-{% raw %}
-Date.masks.default = 'YYYY-MM-DD hh:mm:ss'
-now.format()                  // 2013-07-10 13:47:36
-{% endraw %}
-```
-
-### Define custom formats
+Add custom formats
+------------------
 
 ```javascript
 {% raw %}
@@ -86,8 +91,18 @@ now.format("my")              // DayNo 10
 {% endraw %}
 ```
 
+Change default format
+---------------------
 
-### Use another language
+```javascript
+{% raw %}
+Date.masks.default = 'YYYY-MM-DD hh:mm:ss'
+now.format()         // 2013-07-10 13:47:36
+{% endraw %}
+```
+
+Change language
+---------------
 
 ```javascript
 {% raw %}
@@ -104,7 +119,8 @@ Date.pm = "p.m."
 
 See [tests][tests] for more examples
 
-### Syntax
+Syntax
+------
 
 - **Y**     - A two digit representation of a year without leading zeros. Examples: 99 or 3
 - **YY**    - A two digit representation of a year. Examples: 99 or 03
@@ -136,8 +152,8 @@ See [tests][tests] for more examples
 ###### ISO-8601
 - **w**     - Day of the week. 1 (for Monday) through 7 (for Sunday)
 - **W**     - Week number of year, first week is the week with 4 January in it
-- **o**     - ISO-8601 year number. This has the same value as YYYY, 
-except that if the ISO week number (W) belongs to the previous or next year, 
+- **o**     - ISO-8601 year number. This has the same value as YYYY,
+except that if the ISO week number (W) belongs to the previous or next year,
 that year is used instead
 
 ### Notes
@@ -162,7 +178,7 @@ Links
 
 ### Licence
 
-Copyright (c) 2012-2014 Lauri Rooden &lt;lauri@rooden.ee&gt;  
+Copyright (c) 2012-2015 Lauri Rooden &lt;lauri@rooden.ee&gt;  
 [The MIT License](http://lauri.rooden.ee/mit-license.txt)
 
 

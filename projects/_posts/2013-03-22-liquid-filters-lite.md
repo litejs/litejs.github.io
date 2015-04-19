@@ -11,8 +11,6 @@ css:
 [2]: https://travis-ci.org/litejs/liquid-filters-lite
 [3]: https://coveralls.io/repos/litejs/liquid-filters-lite/badge.png
 [4]: https://coveralls.io/r/litejs/liquid-filters-lite
-[7]: https://ci.testling.com/litejs/liquid-filters-lite.png
-[8]: https://ci.testling.com/litejs/liquid-filters-lite
 
 [date-format-lite]: http://www.litejs.com/date-format-lite/
 [liquid-lite]: http://www.litejs.com/liquid-lite/
@@ -20,8 +18,8 @@ css:
 
 
 
-    @version    0.1.4
-    @date       2014-09-20
+    @version    0.1.5
+    @date       2015-04-09
     @stability  2 - Unstable
 
 
@@ -88,12 +86,6 @@ Currently supported filters
 - **times** - multiplication e.g {{ 5 | times:4 }} #=> 20
 - **divided_by** - division e.g. {{ 10 | divided_by:2 }} #=> 5
 - **modulo** - remainder, e.g. {{ 3 | modulo:2 }} #=> 1
-
-
-Browser Support
----------------
-
-[![browser support][7]][8]
 
 
 External links

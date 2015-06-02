@@ -13,8 +13,8 @@ css:
 [4]: https://coveralls.io/r/litejs/elements-lite
 
 
-    @version    0.6.6
-    @date       2015-05-14
+    @version    0.7.1
+    @date       2015-06-01
     @stability  1 - Experimental
 
 
@@ -160,7 +160,7 @@ Add custom bindings
 
 ```javascript
 {% raw %}
-El.bindings.enabled = function(data, enabled) {
+El.bindings.enabled = function(enabled) {
     this.disabled = !enabled
 }
 {% endraw %}

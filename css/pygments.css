@@ -5,15 +5,22 @@
 	font-size:.688em;
 	border-top:1px solid #CCCCCC;
 }
-.highlight{
+.highlight {
 	background-color:#F0F0F0;
 	border-bottom:1px solid #CCCCCC;
 	border-top:1px solid #CCCCCC;
 	font-family:"Bitstream Vera Sans Mono",monospace;
-	padding:0.5em 1em 1em !important;
-	margin:.4em 1em;
+	font-size: .8em;
+	padding:0.6em 1.6em;
 	overflow:auto;
 }
+.highlight pre,
+.highlight code {
+	margin: 0;
+	padding: 0;
+	line-height: 1.35em;
+}
+
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
 .highlight .k { font-weight: bold } /* Keyword */

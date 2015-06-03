@@ -1,44 +1,31 @@
 
 /**
- *  1. Force a vertical scrollbar to prevent a jumpy page.
- *  2. Do not adjusts the text size automatically.
+ *  1. Do not adjusts the text size automatically.
  *     IE Phone note - If the viewport is set using <meta> element,
  *     the value of the CSS text-size-adjust property is ignored.
  *     Webkit bug - If -webkit-text-size-adjust is explicitely set to none,
  *     Webkit-based desktop browsers, like Chrome or Safari,
  *     instead of ignoring the property, will prevent the user to zoom in or out the Web page.
  *     See Bug 56543, Bug 163359, and Bug 84186.
- *  3. IE for Windows Phone 8.1 supports "-webkit-text-size-adjust" as an alias for "-ms-text-size-adjust".
- *  4. 62.5% brings standard font size so that 1em = 10px.
+ *  2. IE for Windows Phone 8.1 supports "-webkit-text-size-adjust" as an alias for "-ms-text-size-adjust".
+ *  3. 62.5% brings standard font size so that 1em = 10px.
  *     This is because the default size for ‘medium’ text in all modern browsers is 16px.
  */
 
 html {
-	overflow-y: scroll;                   /* 1 */
-	-webkit-text-size-adjust: 100%;       /* 2 */
-	    -ms-text-size-adjust: 100%;       /* 3 */
+	-webkit-text-size-adjust: 100%;       /* 1 */
+	    -ms-text-size-adjust: 100%;       /* 2 */
 	-webkit-font-smoothing: antialiased;
-}
-
-body {
-	font-size: 125%;                      /* 4 */
+	font-size: 62.5%;                     /* 3 */
 	line-height: 1.62;
 }
 
-html,
-body,
 .max-height {
-	min-height: 100%;
 	height: auto !important;
 	height: 100%;
+	min-height: 100%;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 html,
 body,
 form,
@@ -50,15 +37,17 @@ img,
 	outline: 0;
 }
 
-/* for IE8 */
-:focus {
-	outline: none;
-}
-
-/* for FireFox */
-::-moz-focus-inner {
-	border: 0;
-	padding: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 1em 0 .5em 0;
+	font-weight: normal;
+	font-family: georgia, serif;
+	font-style: italic;
 }
 
 a {
@@ -66,46 +55,29 @@ a {
 	text-decoration: none;
 }
 
+/**
+ *  1. Alternate cursor for IE
+ *  2. Fixes extra padding issue in IE6/7
+ *  3. Firefox default is: b, strong { font-weight: bolder; }
+ *     and it does not render well with some fonts (Helvetica Neue on macs for example).
+ */
+
 a,
 button,
 .hand {
 	cursor: pointer;
-	*cursor: hand; /* Alternate cursor for IE */
+	*cursor: hand;       /* 1 */
 }
 
-/**
- * Firefox default is: b, strong { font-weight: bolder; }
- * and it does not render well with some fonts (Helvetica Neue on macs for example).
- */
+button {
+	width: auto;         /* 2 */
+	overflow: visible;   /* 2 */
+}
+
 b,
 strong,
 th {
-	font-weight: bold;
-}
-
-button,
-[draggable=true],
-.noselect {
-	-webkit-user-select: none;
-	 -khtml-user-select: none;
-	   -moz-user-select: none;
-	     -o-user-select: none;
-	        user-select: none;
-}
-
-/* Prevent the text contents of draggable elements from being selectable. */
-[draggable=true] {
-	-webkit-user-drag: element;
-	 -khtml-user-drag: element;
-}
-
-/**
- * 1. Fixes extra padding issue in IE6/7
- */
-
-button {
-	width: auto;       /* 1 */
-	overflow: visible; /* 1 */
+	font-weight: bold;   /* 3 */
 }
 
 audio,
@@ -173,6 +145,33 @@ img {
  * Use foreground images as sprites
  */
 
+button,
+[draggable=true],
+.noselect {
+	-webkit-user-select: none;
+	 -khtml-user-select: none;
+	   -moz-user-select: none;
+	     -o-user-select: none;
+	        user-select: none;
+}
+
+/* Prevent the text contents of draggable elements from being selectable. */
+[draggable=true] {
+	-webkit-user-drag: element;
+	 -khtml-user-drag: element;
+}
+
+/* for IE8 */
+:focus {
+	outline: none;
+}
+
+/* for FireFox */
+::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
 
 /*
 global classes
@@ -183,7 +182,7 @@ global classes
 }
 .transparent {
 	opacity:0 !important;
-	filter:alpha(opacity=0) !important;
+	filter: alpha(opacity=0) !important;
 }
 .max {
 	width: 100%;
@@ -212,16 +211,13 @@ global classes
 
 /* for slider knob */
 .anim {
-  -webkit-transition: all 0.3s ease-out;
-     -moz-transition: all 0.3s ease-out;
-       -o-transition: all 0.3s ease-out;
-          transition: all 0.3s ease-out;
+	-webkit-transition: all 0.3s ease-out;
+	     -moz-transition: all 0.3s ease-out;
+	       -o-transition: all 0.3s ease-out;
+	          transition: all 0.3s ease-out;
 
-  -webkit-transform: translate3d(0, 0, 0); /* for remove first flicker on iphone */
+	-webkit-transform: translate3d(0, 0, 0); /* for remove first flicker on iphone */
 }
-
-
-
 
 
 
@@ -252,8 +248,6 @@ global classes
 	clear: both;
 }
 /* you could use the overflow method, but it’s not universally ideal */
-
-
 
 
 

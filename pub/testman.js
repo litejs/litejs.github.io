@@ -2,28 +2,36 @@
 
 
 /*
-* @version    0.2.0
-* @date       2015-06-02
+* @version    0.3.0
+* @date       2015-06-15
 * @stability  2 - Unstable
 * @author     Lauri Rooden <lauri@rooden.ee>
 * @license    MIT License
 */
 
 
-
 !function(exports) {
-	var undef
-	, tests = []
+	var doneTick, started
+	, totalCases = 0
+	, failedCases = 0
+	, totalAsserts = 0
+	, passedAsserts = 0
 	, toString = Object.prototype.toString
 	, bold  = '\u001b[1m'
 	, red   = '\u001b[31m'
 	, green = '\u001b[32m'
 	, reset = '\u001b[0m'
 	, proc = typeof process == "undefined" ? { argv: [] } : process
-	, Fn = exports.Fn || require("functional-lite").Fn
+	, Fn = exports.Fn || require("./lib/functional-lite.js").Fn
+	, color = proc.stdout && proc.stdout.isTTY && proc.argv.indexOf("--no-color") == -1
 
-	if (!proc.stdout || !proc.stdout.isTTY || proc.argv.indexOf('--no-color') != -1) {
+
+	if (!color) {
 		bold = red = green = reset = ""
+	}
+
+	function print(str) {
+		console.log(str)
 	}
 
 	function This() {
@@ -31,184 +39,246 @@
 	}
 
 	function type(obj) {
-		if (obj === null) return "null"
-		if (obj === undef) return "undefined"
-		/*
-		* Standard clearly states that NaN is a number
-		* but it is not useful for testing.
-		*/
-		if (obj !== obj) return "nan"
-
-		return toString.call(obj).slice(8, -1).toLowerCase()
+		// Standard clearly states that NaN is a number
+		// but it is not useful for testing.
+		return (
+			obj == null || obj != obj ? "" + obj : toString.call(obj).slice(8, -1)
+		).toLowerCase()
 	}
 
-	console.log("TAP version 13")
-	var started;
+	function deepEqual(actual, expected) {
+		if (actual === expected) return true
 
-	var just_one = parseInt(proc.argv[2]) || false
-	var just_two = parseInt(proc.argv[3]) || false
+		var key, len
+		, actualType = type(actual)
+
+		if (actualType != type(expected)) return false
+
+		if (actualType == "object") {
+			var keysA = Object.keys(actual)
+			, keysB = Object.keys(expected)
+			len = keysA.length
+			if (len != keysB.length || !deepEqual(keysA.sort(), keysB.sort())) return false
+			for (; len--; ) {
+				key = keysA[len]
+				if (!deepEqual(actual[key], expected[key])) return false
+			}
+			return true
+		}
+
+		if (actualType == "array" || actualType == "arguments") {
+			len = actual.length
+			if (len != expected.length) return false
+			for (; len--; ) {
+				if (!deepEqual(actual[len], expected[len])) return false
+			}
+			return true
+		}
+
+		return "" + actual == "" + expected
+	}
+
+	function msg(actual, expected, message, operator) {
+		return message || actual + operator + expected
+	}
+
+
+	function AssertionError(message, _stackStart) {
+		this.name = "AssertionError"
+		this.message = message
+		if (Error.captureStackTrace) {
+			Error.captureStackTrace(this, _stackStart || AssertionError)
+		}
+	}
+	AssertionError.prototype = Object.create(Error.prototype)
+
 
 	function describe(name) {
-		var t = this
-		if (!(t instanceof describe)) return new describe(name)
-
-		if (!started) started = +new Date()
-
-		t.name  = name || "{anonymous test}"
-		t.it    = function(name, options){
-			return t._it(name, options)
-		}
-		t.done  = function(){
-			setTimeout(function(){
-				t._done()
-			}, 1)
-		}
-		t.cases = []
-
-		console.log("# "+t.name)
-		tests.push(t)
-
-		if (just_one && tests.length != just_one) {
-			console.log("# skip ", just_one, tests.length)
-			t.it = t.ok = t.equal = t.type = t.run = This
-		}
-		return t
+		return new TestSuite(name)
 	}
 
-	var assert_num = 1
+	function TestSuite(name) {
+		var testSuite = this
 
-	describe.prototype = {
-		describe: function(name) {
-			return new describe(name)
+		if (!started) {
+			started = +new Date()
+			print("TAP version 13")
+		}
+
+		testSuite.name  = name || "{unnamed test suite}"
+		testSuite.cases = []
+
+		print("# " + testSuite.name)
+
+		return testSuite
+	}
+
+
+
+	TestSuite.prototype = {
+		_test: This,
+		describe: describe,
+		it: function(name, options) {
+			return this.test("it " + name, null, options)
 		},
-		_it: function(name, options) {
-			var t = this
-			, assert = new it(name, options, assert_num)
+		test: function(name, next, options) {
+			var testSuite = this
+			, testCase = new TestCase(name, options, testSuite)
 
-			assert.it = function(){
-				assert.end()
-				return t.it.apply(t, arguments)
-			}
-			assert.done = function(){
-				assert.end()
-				return t.done.apply(t, arguments)
-			}
-			assert.num = assert_num++
-			t.cases.push( assert )
-			return assert
+
+			if (next) next(testCase)
+
+			return testCase
 		},
-		_done: function() {
-			var i, j, test, assert
-			, count = 0
-			, failed = 0
-			, passed_asserts = 0
-			, failed_asserts = 0
-			, ended = +new Date()
+		done: function() {
+			if (this.done_) return
+			this.done_ = +new Date()
 
-			for (i = 0; test = tests[i++]; ) {
-				for (j = 0; assert = test.cases[j++]; ) {
-					if (assert.failed.length) failed++
-					failed_asserts += assert.failed.length
-					passed_asserts += assert.passed.length
-				}
-				count += test.cases.length
-			}
-			console.log("1.." + count)
-			console.log("#" + (failed ? "" : green + bold) + " pass  " + (count - failed) 
-				+ "/" + count
-				+ " [" + passed_asserts + "/" +(passed_asserts + failed_asserts)+ "]"
-				+ " in " + (ended - started) + " ms"
+			print("1.." + totalCases)
+			print("#" + (failedCases ? "" : green + bold) + " pass  " + (totalCases - failedCases)
+				+ "/" + totalCases
+				+ " [" + passedAsserts + "/" + totalAsserts + "]"
+				+ " in " + (this.done_ - started) + " ms"
 				+ reset)
 
-			failed && console.log("#" + red + bold + " fail  " + failed
-				+ " [" +failed_asserts+ "]"
+			failedCases && print("#" + red + bold + " fail  " + failedCases
+				+ " [" + (totalAsserts - passedAsserts) + "]"
 				+ reset)
 			/*
 			* FAILED tests 1, 3, 6
 			* Failed 3/6 tests, 50.00% okay
 			* PASS 1 test executed in 0.023s, 1 passed, 0 failed, 0 dubious, 0 skipped.
 			*/
-			if (typeof process != "undefined" && process.exit) process.exit()
+			if (proc.exit) proc.exit()
 		}
 	}
 
-	function it(name, options, num){
-		var t = this
-		if (!(t instanceof it)) return new it(name, options)
-		t.name = name || "{anonymous assert}"
-		t.options = options || {}
-		t.hooks = []
-		t.failed = []
-		t.passed = []
+	function TestCase(name, options, testSuite) {
+		var testCase = this
+		totalCases++
+		testCase.name = totalCases + " - " + (name || "{unnamed test case}")
+		testCase.options = options || {}
+		testCase.failed = []
+		testCase.passedAsserts = 0
+		testCase.totalAsserts = 0
 
-		if (just_two && num != just_two) t.options.skip = "by argv"
-		if (t.options.skip) {
-			t.ok = t.equal = t.type = t.run = This
+		testSuite.cases.push( testCase )
+
+		if (testCase.options.skip) {
+			testCase.ok = testCase.equal = testCase.type = testCase.run = This
 		}
-		return t
+
+		;["describe", "it", "test", "done"].forEach(function(name) {
+			testCase[name] = function() {
+				testCase.end()
+				return testSuite[name].apply(testSuite, arguments)
+			}
+		})
+
+		clearTimeout(doneTick)
+		doneTick = setTimeout(done, 50)
+
+		function done() {
+			if (testCase.ok == describe.it.ok) testSuite.done()
+			else testCase.run(done)
+		}
+
+		return testCase
 	}
 
-	it.prototype = describe.asserts = {
+	TestCase.prototype = describe.it = describe.assert = {
 		wait: Fn.hold,
-		describe: function() {
-			this.end()
-			return describe.apply(this, arguments)
+		ok: function(value, message) {
+			var testCase = this
+			, prefix = " #" + (testCase.passedAsserts + testCase.failed.length+1)
+			totalAsserts++
+			testCase.totalAsserts++
+			try {
+				if (typeof value == "function") value = value.call(testCase)
+				if (!value) throw new AssertionError(message)
+				passedAsserts++
+				testCase.passedAsserts++
+			} catch(e) {
+				testCase.failed.push(message + prefix + "\n" + e.stack)
+			}
+			return testCase
+		},
+		equal: function(actual, expected, message) {
+			return this.ok(actual == expected, msg(actual, expected, message, "=="))
+		},
+		notEqual: function(actual, expected, message) {
+			return this.ok(actual != expected, msg(actual, expected, message, "!="))
+		},
+		strictEqual: function(actual, expected, message) {
+			return this.ok(actual === expected, msg(actual, expected, message, "==="))
+		},
+		notStrictEqual: function(actual, expected, message) {
+			return this.ok(actual !== expected, msg(actual, expected, message, "!=="))
+		},
+		deepEqual: function(actual, expected, message) {
+			return this.ok(deepEqual(actual, expected), msg(actual, expected, message, "deepEqual"))
+		},
+		notDeepEqual: function(actual, expected, message) {
+			return this.ok(!deepEqual(actual, expected), msg(actual, expected, message, "notDeepEqual"))
+		},
+		throws: function(fn, message) {
+			var actual = false
+			, expected = true
+			try {
+				fn()
+			} catch(e) {
+				actual = true
+			}
+			return this.ok(actual, msg(actual, expected, message, "throws"))
+		},
+		plan: function(num) {
+			this.planned = num
+			return this
 		},
 		end: function() {
-			console.log(this.toString())
+			var testCase = this
+
+			if (testCase.ended) return
+
+			testCase.ended = new Date()
+
+			if (testCase.options.skip) {
+				return print("ok " + testCase.name + " # skip - " + testCase.options.skip)
+			}
+
+			if (testCase.planned != void 0) {
+				testCase.equal(testCase.planned, testCase.totalAsserts, null, "planned")
+			}
+
+			testCase.name += " [" + testCase.passedAsserts + "/" + testCase.totalAsserts + "]"
+
+			if (testCase.failed.length) {
+				failedCases++
+				print("not ok " + testCase.name + "\n---\n" + testCase.failed.join("\n") + "\n---")
+			} else {
+				print("ok " + testCase.name)
+			}
 		},
 		run: function(fn) {
 			fn.call(this)
 			return this
 		},
-		ok: function(value, options) {
-			var t = this
-			options = options || {}
-
-			if (typeof options == "string") options = { message: options }
-
-			if (typeof value == "function") value = value.call(t)
-			t[ value ? "passed" : "failed" ].push(options.message + " #" + (t.passed.length+t.failed.length+1))
-			return t
+		anyOf: function(a, b) {
+			return this.ok( Array.isArray(b) && b.indexOf(a) != -1, "should be one of '" + b + "', got " + a )
 		},
-		equal: function(a, b, options) {
-			if (typeof a == "function") a = a.call(this)
-			if (typeof b == "function") b = b.call(this)
-			return this.ok( a === b, options || "Expected: "+b+" Got: "+a )
-		},
-		deepEqual: function(actual, expected, opts) {
-			actual = JSON.stringify(actual)
-			expected = JSON.stringify(expected)
-			return this.ok( actual === expected, opts || "Expected: "+expected+" Got: "+actual )
-		},
-		anyOf: function(a, b, options) {
-			return this.ok( Array.isArray(b) && b.indexOf(a) != -1, options || "should be one of '" + b + "', got " + a )
-		},
-		type: function(thing, expected, options) {
+		type: function(thing, expected) {
 			var t = type(thing)
-			return this.ok( t === expected, options || "type should be " + expected + ", got " + t )
-		},
-		toString: function() {
-			var t = this
-			, fail = t.failed.length
-			, fail_log = ""
-			, name = t.num + " - it " + t.name
-
-			if (t.options.skip) {
-				return "ok " + name + " # skip - " + t.options.skip
-			}
-
-			if (fail) {
-				fail_log = "\n  ---\n    messages:\n      - " + this.failed.join("\n      - ") + "\n  ---"
-			}
-
-			return (fail ? "not ok " : "ok ") + name + 
-						" [" + (this.passed.length) + "/" + (this.passed.length+fail) + "]" + fail_log
-
+			return this.ok( t === expected, "type should be " + expected + ", got " + t )
 		}
 	}
+
 	exports.describe = describe.describe = describe
-	describe.it = it.prototype
+
+	var testPoint
+	exports.test = function(name, next) {
+		if (!testPoint) testPoint = describe()
+		return testPoint = testPoint.test(name, next)
+	}
 
 }(this)
 

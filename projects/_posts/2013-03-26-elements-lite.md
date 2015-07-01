@@ -13,8 +13,8 @@ css:
 [4]: https://coveralls.io/r/litejs/elements-lite
 
 
-    @version    0.7.1
-    @date       2015-06-01
+    @version    0.7.3
+    @date       2015-07-01
     @stability  1 - Experimental
 
 

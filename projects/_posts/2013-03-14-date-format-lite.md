@@ -14,8 +14,8 @@ css:
 [tests]: https://raw.github.com/litejs/date-format-lite/master/tests/run.js "tests/run.js"
 
 
-    @version    0.7.1
-    @date       2015-03-21
+    @version    0.7.4
+    @date       2015-07-21
     @stability  2 - Unstable
 
 
@@ -107,8 +107,7 @@ Change language
 ```javascript
 {% raw %}
 // Add to estonian-lang.js
-Date.dayNames = "P E T K N R L pühapäev esmaspäev teisipäev kolmapäev neljapäev reede laupäev".split(" ")
-Date.monthNames = "Jaan Veeb Märts Apr Mai Juuni Juuli Aug Sept Okt Nov Dets jaanuar veebruar märts aprill mai juuni juuli august september oktoober november detsember".split(" ")
+Date.names = "Jaan Veeb Märts Apr Mai Juuni Juuli Aug Sept Okt Nov Dets jaanuar veebruar märts aprill mai juuni juuli august september oktoober november detsember P E T K N R L pühapäev esmaspäev teisipäev kolmapäev neljapäev reede laupäev".split(" ")
 
 // Change AM and PM
 Date.am = "a.m."

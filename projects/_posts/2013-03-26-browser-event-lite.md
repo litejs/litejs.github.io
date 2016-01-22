@@ -12,8 +12,8 @@ css:
 [2]: https://raw.github.com/litejs/browser-event-lite/master/index.js
 
 
-    @version  0.3.0
-    @date     2015-06-01
+    @version  0.4.0
+    @date     2016-01-14
 
 
 Event

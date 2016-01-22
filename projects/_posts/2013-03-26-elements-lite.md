@@ -13,8 +13,8 @@ css:
 [4]: https://coveralls.io/r/litejs/elements-lite
 
 
-    @version    0.7.3
-    @date       2015-07-01
+    @version    0.8.2
+    @date       2015-12-16
     @stability  1 - Experimental
 
 
@@ -142,7 +142,7 @@ becomes
 
 ```html
 {% raw %}
-ul[data-bind="class: 'red', list.count > 5; each: row in list"]
+ul[data-bind="class: 'red', list.count > 5"]
   li[data-bind="txt: row"]
 {% endraw %}
 ```
@@ -151,7 +151,7 @@ ul[data-bind="class: 'red', list.count > 5; each: row in list"]
 
 ```html
 {% raw %}
-ul &class: "red", list.count > 5; each: row in list
+ul &class: "red", list.count > 5
   li[data-bind="txt: row"]
 {% endraw %}
 ```

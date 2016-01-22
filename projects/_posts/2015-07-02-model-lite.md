@@ -15,8 +15,8 @@ css:
 [GitHub repo]: https://github.com/litejs/model-lite
 
 
-    @version    0.1.4
-    @date       2015-06-29
+    @version    0.3.1
+    @date       2015-12-22
     @stability  1 - Experimental
 
 

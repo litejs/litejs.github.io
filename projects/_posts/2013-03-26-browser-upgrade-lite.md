@@ -11,8 +11,8 @@ css:
 [GitHub repo]: https://github.com/litejs/browser-upgrade-lite
 
 
-    @version    1.1.5
-    @date       2015-03-10
+    @version    1.2.1
+    @date       2015-12-15
     @stability  3 - Stable
 
 
@@ -39,7 +39,7 @@ Contains
 - Array.prototype.map
 - Array.prototype.filter
 - Array.prototype.some
-- Date.prototype.toISOString
+- Date.prototype.toJSON
 - Date.now
 - String.prototype.trim
 - JSON

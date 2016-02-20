@@ -3,7 +3,7 @@
 
 /*
 * @version    0.3.1
-* @date       2016-02-19
+* @date       2015-06-19
 * @stability  2 - Unstable
 * @author     Lauri Rooden <lauri@rooden.ee>
 * @license    MIT License
@@ -335,7 +335,7 @@
 	}
 	describe.it.waitSelector = function(actual, options) {
 		return this.waitTill(function() {
-			return document.body.find(actual)
+			return document.body.find.call(document.documentElement, actual)
 		}, options || "Expected: selector "+actual+" should be in dom")
 	}
 	describe.it.countSelectors = function(actual, expected, options) {
@@ -403,7 +403,7 @@
 		, styleSheetsCount = styleSheets.length
 		, ignoreFiles = options.ignoreFiles
 		, ignoreSelectors = options.ignoreSelectors
-		, cleanSelectorRe = /:(?:focus|active|hover|:[-\w]+)\b/g
+		, cleanSelectorRe = /:(?:focus|active|hover|unknown|:[-\w]+)\b/g
 
 		while (styleSheetsCount--) {
 			parseStyleSheet(styleSheets[styleSheetsCount])
@@ -413,7 +413,12 @@
 			var rule
 			, rules = styleSheet.cssRules || styleSheet.rules
 			, rulesCount = rules.length
-			, fileName = relative(location.href.replace(/\/[^\/]*$/, ""), styleSheet.href||"")
+			, fileName = styleSheet.href
+
+			// In IE7 fileName already is relative
+			if (/^\w+:\/\//.test(fileName)) {
+				fileName = relative(location.href.replace(/\/[^\/]*$/, ""), styleSheet.href||"")
+			}
 
 			if (ignoreFiles && ignoreFiles.indexOf(fileName) > -1) return
 
@@ -452,7 +457,7 @@
 			, len = arr.length
 
 			while (sel = arr[--len]) {
-				selectors[sel].count += document.body.findAll(sel).length
+				selectors[sel].count += document.body.findAll.call(document.documentElement, sel).length
 			}
 		}
 		return this

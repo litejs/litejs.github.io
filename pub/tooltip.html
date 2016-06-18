@@ -1,0 +1,58 @@
+<style>
+.bg {
+	background: linear-gradient(#fff, #cde) fixed;
+	/* will-change: transform; */
+}
+#tooltip {
+	position: absolute;
+	padding: 8px;
+	color: #fff;
+	background: #666;
+	opacity: 0;
+	transform: scale(0);
+	transform-origin: -50% 100%;
+}
+#tooltip.is-visible {
+	transform: scale(1);
+	opacity: 1;
+	transition: opacity, transform .2s cubic-bezier(0, 0, .2, 1) 0s;
+}
+a {
+	display: block;
+	float: left;
+	width: 75px;
+	clear: both;
+	margin: 5px;
+	border: 1px solid #ccc;
+}
+</style>
+<body class=bg>
+	<div>
+		<a tooltip="A A A">A</a>
+		<a tooltip="B B B">B</a>
+		<a tooltip="C C C">C</a>
+		<a tooltip="D D D">D</a>
+		<a tooltip="E E E">E</a>
+		<pre id=tooltip></pre>
+	</div>
+	<p>
+	In Firefox 47 moving over links leavest strange ghosts visible.<br>
+	Adding 'will-change: transform'
+	or removing 'fixed' from background
+	or setting background to div instead of body will fix this issue.<br>
+	<img src="tooltip.png">
+	</p>
+</body>
+<script>
+document.addEventListener("mouseover", function(e) {
+	var target = e.target
+	, text = target.getAttribute("tooltip")
+	tooltip.classList.remove("is-visible")
+	if (!text) return
+	tooltip.textContent = text
+	var rect = target.getBoundingClientRect()
+	tooltip.style.top = (rect.top - 16) + "px"
+	tooltip.style.left = (rect.right + 4) + "px"
+	tooltip.classList.add("is-visible")
+}, true)
+</script>

@@ -14,8 +14,8 @@ css:
 [tests]: https://raw.github.com/litejs/date-format-lite/master/tests/run.js "tests/run.js"
 
 
-    @version    0.7.4
-    @date       2015-07-21
+    @version    0.9.1
+    @date       2016-08-16
     @stability  2 - Unstable
 
 
@@ -56,6 +56,21 @@ now.format("hh:mm", 2.5)      // 16:17
 {% endraw %}
 ```
 
+Mutate  Dates
+------------
+
+`date-format-lite` adds `add(amount, [unit])` method to native `Date.prototype`.
+
+-   **amount** `Number` - Time to add, negative number will be subtracted.
+-   **unit** `String, optional` - e.g. seconds, minutes, hours, days, weeks, months, years.
+
+```javascript
+{% raw %}
+now.format("iso")                     // 2013-07-10T13:47:36Z
+now.add(1, "days").format("iso")      // 2013-07-11T13:47:36Z
+now.add(-2, "hours").format("iso")    // 2013-07-11T11:47:36Z
+{% endraw %}
+```
 
 Parse Dates
 -----------
@@ -177,7 +192,7 @@ Links
 
 ### Licence
 
-Copyright (c) 2012-2015 Lauri Rooden &lt;lauri@rooden.ee&gt;  
+Copyright (c) 2012-2016 Lauri Rooden &lt;lauri@rooden.ee&gt;  
 [The MIT License](http://lauri.rooden.ee/mit-license.txt)
 
 

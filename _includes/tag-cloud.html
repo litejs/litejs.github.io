@@ -1,5 +1,5 @@
 <h3>Tags <span class="rgt gray">({{ site.tags.size }})</span></h3>
 <ul class="tag-cloud">{% for tag in site.tags %}
-	<li><a href="/tags/{{ tag | first }}.html" style="font-size:{{ tag | last | size | times:200 | divided_by:site.tags.size | plus:100}}%">
+	<li><a href="/tags/{{ tag | first }}/" style="font-size:{{ tag | last | size | times:200 | divided_by:site.tags.size | plus:100}}%">
 		{{ tag | first }}</a></li>{% endfor %}
 </ul>

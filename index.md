@@ -1,6 +1,8 @@
 ---
 layout: index
 title: home
+css:
+- /css/pygments.css
 ---
 
 
@@ -13,7 +15,6 @@ title: home
 
     @version    0.10.2
     @date       2016-09-12
-    @stability  2 - Unstable
 
 
 

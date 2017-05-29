@@ -15,8 +15,8 @@ css:
 [4]: http://nodejs.org/api/crypto.html
 
 
-    @version    0.1.0
-    @date       2015-03-22
+    @version    0.2.0
+    @date       2017-02-08
     @stability  2 - Unstable
 
 
@@ -41,7 +41,7 @@ crypto.hmac("sha1", "key", "message")
 // 2088df74d5f2146b48146caf4965377e9d0be3a4
 crypto.hmac("sha256", "key", "message")
 // 6e9ef29b75fffc5b7abae527d58fdadb2fe42e7219011976917343065f58ed4a
-crypto.pbkdf2Sync("password", "salt", 1, 20)
+crypto.pbkdf2("password", "salt", 1, 20, "sha1")
 // 0c60c80f961f0e71f3a9b524af6012062fe037a6
 </script>
 {% endraw %}
@@ -71,7 +71,7 @@ External links
 
 ### Licence
 
-Copyright (c) 2014 Lauri Rooden &lt;lauri@rooden.ee&gt;  
+Copyright (c) 2014-2017 Lauri Rooden &lt;lauri@rooden.ee&gt;  
 [The MIT License](http://lauri.rooden.ee/mit-license.txt)
 
 

@@ -2,7 +2,7 @@
 
 html,
 body {
-	background: #eee;
+	background: #fefefe;
 }
 
 body {
@@ -114,6 +114,7 @@ blockquote cite:before {
 .sidebar {
 	float: right;
 	width: 240px;
+	padding: 0 1em;
 	font-size: .8em;
 }
 
@@ -143,8 +144,5 @@ blockquote cite:before {
 	margin-top: 4em;
 	box-shadow: 0 0 5px rgba(0,0,0,.2);
 	clear: both;
-}
-.highlight {
-	margin: 1em -5em;
 }
 

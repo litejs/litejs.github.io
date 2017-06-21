@@ -13,32 +13,32 @@ css:
 [SUIT CSS]: https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
 
 
-    @version    0.10.2
-    @date       2016-09-12
-
+    @version    17.6.0
+    @date       2017-06-21
 
 
 LiteJS
 ======
 
-A small, high-performance, feature-rich JavaScript framework
-for building single-page applications.
-[LiteJS][] is an excellent choice for complex user interfaces
-that are redrawn often.
+The best way to build fast and powerful web interfaces.
 
-Weighing in at just 25KB (11KB gzipped),
+Weighing in at just 26KB (11KB gzipped),
 it includes everything you need to build a modern web application:
 
  - routed views with browser history management
  - reusable templates by custom element tags
  - asynchronous and dynamic code loading
  - translations with instant language switching - no page reload required
+<details>
+    <summary>.. and more with no dependencies</summary>
+
  - date parsing and formating [date-format-lite](https://github.com/litejs/date-format-lite)
  - string formating
  - keyboard shortcuts
- - JSON Pointer [RFC 6901] and JSON Merge Patch [RFC 7396] implementation [json-util](https://github.com/litejs/json-util)
+ - JSON Pointer [RFC 6901] and JSON Merge Patch [RFC 7396] implementation
 
-No dependencies.
+</details>
+<p></p>
 
 See a [working example](https://cdn.rawgit.com/litejs/litejs/master/public/example1.html)
 with a [source code](https://github.com/litejs/litejs/blob/master/public/example1.html)
@@ -78,7 +78,7 @@ a#123.link.bold[href="#A"] My link
 ul
 	li Item A
 	li Item B
-.footer>button:disabled[title=go]
+.footer>button:disabled[title=go] Click
 ```
 
 becomes
@@ -90,7 +90,7 @@ becomes
 	<li>Item B</li>
 </ul>
 <div class="footer">
-	<button disabled="disabled" title="go"></button>
+	<button disabled="disabled" title="go">Click</button>
 </div>
 ```
 
@@ -98,12 +98,13 @@ becomes
 are supported. Child combinators can be used and you can leave off the tag to get a div.
 
 
-### Built-in plugins
+#### Built-in plugins
 
 Plugins starts with `@` in template files.
 
- - **@el [name]** - Create a new custom element.
  - **@child** - Content will be put there.
+ - **@def [route,...] [route|file,...]** - Define routes and required files for them.
+ - **@el [name]** - Create a new custom element.
  - **@view [route] [parent]** - Organize views into a hierarchy with built-in router.
     - Accepts Level 1 URI Templates [RFC 6570][].
     - Views starting with `#` are hidden without a route.
@@ -142,9 +143,12 @@ Plugins starts with `@` in template files.
 [See it in action](https://cdn.rawgit.com/litejs/litejs/master/public/example2.html)
 
 
-### Built-in bindings
+#### Built-in bindings
 
-Bindings starts with `&` in template files.
+Bindings starts with `&` in template files after declaring selector.
+Bindings are piece of JavaScript that will be run on rendering.
+Bindings ties together UI and Model.
+
 
  - **&class: [name], [force]** - Add a class to element.
  - **&txt: [content]** - Add plain text to element.
@@ -153,8 +157,21 @@ Bindings starts with `&` in template files.
 ```css
 a[href="#x"]
     &class: "is-selected", Math.random() > .5
-    &txt: this.href
+    // :: is for one-time binding
+    &txt:: this.href
 ```
+
+
+### Data layer
+
+To detect and respond to changes LiteJS uses observables.
+
+`Item` is a cached by id and observable Object.
+
+`List` is a cached by name and observable Array of `Item`s,
+that can be merged, sorted, filtered, paged and loaded asynchronously.
+
+
 
 ### Api
 

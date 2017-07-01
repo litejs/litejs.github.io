@@ -13,8 +13,8 @@ css:
 [SUIT CSS]: https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
 
 
-    @version    17.6.0
-    @date       2017-06-21
+    @version    17.7.0
+    @date       2017-07-01
 
 
 LiteJS
@@ -32,7 +32,7 @@ it includes everything you need to build a modern web application:
 <details>
     <summary>.. and more with no dependencies</summary>
 
- - date parsing and formating [date-format-lite](https://github.com/litejs/date-format-lite)
+ - date parsing and formating with bundled [date-format-lite](https://github.com/litejs/date-format-lite)
  - string formating
  - keyboard shortcuts
  - JSON Pointer [RFC 6901] and JSON Merge Patch [RFC 7396] implementation

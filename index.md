@@ -5,7 +5,6 @@ css:
 - /css/pygments.css
 ---
 
-
 [LiteJS]: https://www.litejs.com/
 [npm package]: https://npmjs.org/package/litejs
 [GitHub repo]: https://github.com/litejs/litejs

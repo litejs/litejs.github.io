@@ -12,10 +12,6 @@ css:
 [RFC 6570]: http://tools.ietf.org/html/rfc6570
 
 
-    @version    18.4.0
-    @date       2018-04-06
-
-
 LiteJS
 ======
 

@@ -1,12 +1,12 @@
----                                                                             
-layout: project                                                                 
+---
+layout: project
 title: crypto-lite
 summary: Standard and secure cryptographic algorithms for browser
 tags: ["crypto","sha1","sha256","hmac","pbkdf2"]
 fork: https://github.com/litejs/crypto-lite
-css:                                                                            
-- /css/pygments.css                                                              
----                                                                             
+css:
+- /css/pygments.css
+---
 
 [Build]:    http://img.shields.io/travis/litejs/crypto-lite.png
 [Coverage]: http://img.shields.io/coveralls/litejs/crypto-lite.png

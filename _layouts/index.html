@@ -10,24 +10,16 @@
 	</head>
 <body>
 
-<div class=sidebar>
-{% include tag-cloud.html %}
-<h4>Projects</h4>
-<p>Ligthweight javascript</p>
-<a href="/projects/">Read more &raquo;</a>
-
-<h4>Help needed</h4>
-<p>- Improve our web design<br>- Write documentation<br>- Test our stuff<br>- Write a code</p>
-<a href="https://github.com/litejs/litejs.github.io/">Contribute in GitHub &raquo;</a>
-</div>
-
 <div class="gray">
-	<h1>
-		<a class=gray href="{{ site.url }}">{{ site.name | xml_escape }}</a>
-	</h1>
+	<div class=rgt>
+		<a href="/projects/">Projects</a> | <a href="https://github.com/litejs/litejs.github.io/">Contribute in GitHub</a>
+	</div>
+	<h1><a class=gray href="{{ site.url }}">{{ site.name | xml_escape }}</a></h1>
 </div>
 
-{{ content }}
+<div id="post">
+	{{ content }}
+</div>
 
 {% capture last_year %}{{ site.posts.first.date | date: "%Y" }}{% endcapture %}
 {% capture first_year %}{{ site.posts.last.date | date: "%Y" }}{% endcapture %}

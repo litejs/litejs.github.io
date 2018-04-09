@@ -1,5 +1,4 @@
-  <li>
-		<h4>{{ post.title }}</h4>
+	<li>
+		<h4><a href="{{ post.url }}">{{ post.title }} &raquo;</a></h4>
 		<p>{{ post.summary }}</p>
-		<a href="{{ post.url }}">Read more &raquo;</a>
 	</li>

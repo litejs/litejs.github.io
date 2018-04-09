@@ -9,7 +9,7 @@ permalink: /:title/
 kramdown:
     input: GFM
 highlighter: rouge
-gems: [jekyll-paginate, jekyll-gist]
+plugins: [jekyll-paginate, jekyll-gist]
 exclude:
 - README.md
 menu:

@@ -33,7 +33,6 @@ Examples
 --------
 
 ```javascript
-{% raw %}
 var selector = require("selector-lite")
 
 // Can be used to implement browser built-in functions.
@@ -53,7 +52,6 @@ function querySelector(sel) {
 function querySelectorAll(sel) {
     return selector.find(this, sel)
 }
-{% endraw %}
 ```
 
 Methods
@@ -80,13 +78,11 @@ where method shortcuts are available (m->matches, c->closest, n->next, p->prev).
  - `a` and `b` can be used as temp variables.
 
 ```javascript
-{% raw %}
 // Add `:input` selector
 selector.selectorMap.input = "_.tagName=='INPUT'"
 
 // Add `:val()` selector
 selector.selectorMap.val = "_.value==v"
-{% endraw %}
 ```
 
 Coding Style Guidelines

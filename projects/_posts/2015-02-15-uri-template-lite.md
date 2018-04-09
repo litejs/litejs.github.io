@@ -30,7 +30,6 @@ Usage
 -----
 
 ```javascript
-{% raw %}
 // Call `expand` directly
 var data = {"domain":"example.com", "user":"fred", "query":"mycelium"}
 URI.expand("http://{domain}/~{user}/foo{?query,number}", data)
@@ -48,7 +47,6 @@ template.match("http://example.com/~fred/foo?query=mycelium&number=3")
 
 template.match("http://other.com/?query=mycelium")
 // Returns false
-{% endraw %}
 ```
 
 
@@ -58,17 +56,13 @@ Installation
 To use it in the browser, include uri-template-min.js in your site
 
 ```html
-{% raw %}
 <script src=uri-template-min.js></script>
-{% endraw %}
 ```
 
 In node.js: `npm install uri-template-lite`
 
 ```javascript
-{% raw %}
 var URI = require("uri-template-lite").URI
-{% endraw %}
 ```
 
 

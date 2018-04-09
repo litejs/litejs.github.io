@@ -30,13 +30,11 @@ in the way a human being would in sort order.
 This is described as a "natural ordering".
 
 ```text
-{% raw %}
 Standard sorting:   Natural order sorting:
     img1.png            img1.png
     img10.png           img2.png
     img12.png           img10.png
     img2.png            img12.png
-{% endraw %}
 ```
 
 String.naturalCompare returns a number indicating
@@ -51,23 +49,18 @@ Use it with builtin sort() function.
 - In browser
 
 ```html
-{% raw %}
 <script src=min.natural-compare.js></script>
-{% endraw %}
 ```
 
 - In node.js: `npm install natural-compare-lite`
 
 ```javascript
-{% raw %}
 require("natural-compare-lite")
-{% endraw %}
 ```
 
 ### Usage
 
 ```javascript
-{% raw %}
 // Simple case sensitive example
 var a = ["z1.doc", "z10.doc", "z17.doc", "z2.doc", "z23.doc", "z3.doc"];
 a.sort(String.naturalCompare);
@@ -102,7 +95,6 @@ a.map(function(car){
 a.sort(function(a, b){
   return String.naturalCompare(a.sort_key, b.sort_key);
 })
-{% endraw %}
 ```
 
 - Works well with dates in ISO format eg "Rev 2012-07-26.doc".
@@ -114,7 +106,6 @@ It is possible to configure a custom alphabet
 to achieve a desired order.
 
 ```javascript
-{% raw %}
 // Estonian alphabet
 String.alphabet = "ABDEFGHIJKLMNOPRSŠZŽTUVÕÄÖÜXYabdefghijklmnoprsšzžtuvõäöüxy"
 ["t", "z", "x", "õ"].sort(String.naturalCompare)
@@ -124,7 +115,6 @@ String.alphabet = "ABDEFGHIJKLMNOPRSŠZŽTUVÕÄÖÜXYabdefghijklmnoprsšzžtuv�
 String.alphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя"
 ["Ё", "А", "Б"].sort(String.naturalCompare)
 // ["А", "Б", "Ё"]
-{% endraw %}
 ```
 
 

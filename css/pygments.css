@@ -9,10 +9,13 @@
 	background-color:#F0F0F0;
 	border-bottom:1px solid #CCCCCC;
 	border-top:1px solid #CCCCCC;
-	font-family:"Bitstream Vera Sans Mono",monospace;
+	font-family: "Bitstream Vera Sans Mono",monospace;
 	font-size: .8em;
-	padding:0.6em 1.6em;
+	padding: 2px 4px;
 	overflow:auto;
+}
+.highlighter-rouge > .highlight {
+	padding: .5em 1em;
 }
 .highlight pre,
 .highlight code {

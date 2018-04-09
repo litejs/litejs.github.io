@@ -29,7 +29,6 @@ Lite version of sha1, sha256, hmac, pbkdf2 writen in javascript.
 ## How to use in browser
 
 ```html
-{% raw %}
 <script src=crypto-lite.js></script>
 
 <script>
@@ -44,7 +43,6 @@ crypto.hmac("sha256", "key", "message")
 crypto.pbkdf2("password", "salt", 1, 20, "sha1")
 // 0c60c80f961f0e71f3a9b524af6012062fe037a6
 </script>
-{% endraw %}
 ```
 
 
@@ -55,10 +53,8 @@ Although it should work in node.js, you should [use native][4] api there.
 npm install crypto-lite
 
 ```javascript
-{% raw %}
 var crypto = require("crypto-lite").crypto
 
-{% endraw %}
 ```
 
 

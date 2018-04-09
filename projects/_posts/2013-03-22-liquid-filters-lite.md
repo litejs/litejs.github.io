@@ -37,12 +37,10 @@ Currently supported filters
 - **date** - reformat a date syntax reference  
     Require [date-format-lite][]
     ```javascript
-{% raw %}
     var item = { "timestamp": 1363770186, "datetime": "2013-03-20T09:03:06Z" }
     {{ timestamp | date:"isoUtcDateTime" }}
     {{ datetime | date:"hh:mm" }}
-    {% endraw %}
-```
+    ```
 
 -   **capitalize** - capitalize words in the input sentence
 -   **downcase** - convert an input string to lowercase
@@ -57,11 +55,9 @@ Currently supported filters
 -   **replace** - replace the first or each occurrence. 
     `Native in javascript`
     ```javascript
-{% raw %}
     {{ 'foofoo' | replace:'foo','bar' }} #=> 'barfoo'
     {{ 'foofoo' | replace:/foo/g,'bar' }} #=> 'barbar'
-    {% endraw %}
-```
+    ```
 -   **remove** - remove each occurrence e.g. {{ 'foobarfoobar' | remove:'foo' }} #=> 'barbar'
 -   **split** - split a string on a matching pattern e.g. {{ "a~b" | split:~ }} #=> ['a','b'].
     `Native in javascript`

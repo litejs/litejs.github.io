@@ -14,8 +14,8 @@ css:
 [tests]: https://raw.github.com/litejs/date-format-lite/master/tests/run.js "tests/run.js"
 
 
-    @version    0.9.2
-    @date       2017-02-03
+    @version    17.7.0
+    @date       2017-07-14
     @stability  2 - Unstable
 
 
@@ -32,9 +32,7 @@ Install
 npm install date-format-lite --save
 
 ```javascript
-{% raw %}
 require("date-format-lite")
-{% endraw %}
 ```
 
 
@@ -47,13 +45,11 @@ Format Dates
 -   **zone** `Number, optional` - UTC offset in hours, e.g. `-6.5`.
 
 ```javascript
-{% raw %}
 var now = new Date()          // Date {Wed Jul 10 2013 16:47:36 GMT+0300 (EEST)}
 now.format("iso")             // 2013-07-10T13:47:36Z
 now.format("hh:mm")           // 16:47 (local time)
 now.format("UTC:hh:mm")       // 13:47
 now.format("hh:mm", 2.5)      // 16:17
-{% endraw %}
 ```
 
 Mutate  Dates
@@ -65,11 +61,9 @@ Mutate  Dates
 -   **unit** `String, optional` - e.g. seconds, minutes, hours, days, weeks, months, years.
 
 ```javascript
-{% raw %}
 now.format("iso")                     // 2013-07-10T13:47:36Z
 now.add(1, "days").format("iso")      // 2013-07-11T13:47:36Z
 now.add(-2, "hours").format("iso")    // 2013-07-11T11:47:36Z
-{% endraw %}
 ```
 
 Parse Dates
@@ -84,7 +78,6 @@ to native `String.prototype` and `Number.prototype`.
 -   **inZone** `Number, optional` - UTC offset in input in hours, e.g. `-6.5`.
 
 ```javascript
-{% raw %}
 "2013-07-10".date()           // Date {Wed Jul 10 2013 03:00:00 GMT+0300 (EEST)}
 "2013-07-10T13:47:36Z".date() // Date {Wed Jul 10 2013 16:47:36 GMT+0300 (EEST)}
 "10/07/2013".date()           // Date {Wed Jul 10 2013 03:00:00 GMT+0300 (EEST)}
@@ -92,7 +85,6 @@ Date.middleEndian = true
 "10/07/2013".date()           // Date {Mon Oct 07 2013 03:00:00 GMT+0300 (EEST)}
 // Change format
 "10/07/2013".date("YYYY-MM-DD")// 2013-07-10
-{% endraw %}
 ```
 
 
@@ -100,34 +92,28 @@ Add custom formats
 ------------------
 
 ```javascript
-{% raw %}
 Date.masks.my = '"DayNo "D'
 now.format("my")              // DayNo 10
-{% endraw %}
 ```
 
 Change default format
 ---------------------
 
 ```javascript
-{% raw %}
 Date.masks.default = 'YYYY-MM-DD hh:mm:ss'
 now.format()         // 2013-07-10 13:47:36
-{% endraw %}
 ```
 
 Change language
 ---------------
 
 ```javascript
-{% raw %}
 // Add to estonian-lang.js
 Date.names = "Jaan Veeb Märts Apr Mai Juuni Juuli Aug Sept Okt Nov Dets jaanuar veebruar märts aprill mai juuni juuli august september oktoober november detsember P E T K N R L pühapäev esmaspäev teisipäev kolmapäev neljapäev reede laupäev".split(" ")
 
 // Change AM and PM
 Date.am = "a.m."
 Date.pm = "p.m."
-{% endraw %}
 ```
 
 
@@ -157,8 +143,8 @@ Syntax
 - **ss**    - Seconds with leading zeros. 00 to 59
 - **S**     - Milliseconds without leading zeros. 0 through 999
 - **SS**    - Milliseconds with leading zeros. 000 to 999
-- **u**     - Milliseconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
-- **U**     - Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
+- **U**     - Milliseconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
+- **u**     - Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
 - **A**     - Ante meridiem and Post meridiem. AM or PM
 - **"text"** - text, quotes should be escaped, eg '"a \\"quoted text\\"" YYYY'
 

@@ -49,8 +49,7 @@ projects: $(wildcard projects/_posts/*.md)
 
 projects/_posts/%.md: Makefile
 	sed -i '1b;/^---/q' $@
-	curl -sS "https://raw.githubusercontent.com/litejs/`sed -n '/^title: /s///p' $@`/master/README.md" |\
-	sed 's/```\(..*\)/\0\n{% raw %}/;t;s/```/{% endraw %}\n\0/' >> $@
+	curl -sS "https://raw.githubusercontent.com/litejs/`sed -n '/^title: /s///p' $@`/master/README.md" >> $@
 	TAGS=$$(curl -sS "https://raw.githubusercontent.com/litejs/`sed -n '/^title: /s///p' $@`/master/package.json" | \
 		jq -c '.keywords');\
 		sed -i "1,/---/s/tags:.*/tags: $$TAGS/" $@

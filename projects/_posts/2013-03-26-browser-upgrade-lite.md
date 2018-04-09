@@ -62,7 +62,6 @@ Notes
 -   Safari 2.0.2: 416 hasOwnProperty introduced October 31, 2005 (Mac OS X v10.4)
 
 ```javascript
-{% raw %}
 // hasOwnProperty polyfill
 Object.prototype.hasOwnProperty = function(name, obj) {
     try {
@@ -71,7 +70,6 @@ Object.prototype.hasOwnProperty = function(name, obj) {
     } catch(e) {}
     return true
 }
-{% endraw %}
 ```
 
 

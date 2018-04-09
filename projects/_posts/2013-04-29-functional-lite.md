@@ -38,7 +38,6 @@ Examples
 Extends String and Function with "every filter each map fold foldr some"
 
 ```javascript
-{% raw %}
 // _ is default first argument name when no arguments defined
 
 "_ + 1".map([1, 2, 3])
@@ -47,7 +46,6 @@ Extends String and Function with "every filter each map fold foldr some"
 // is equal to
 [1, 2, 3].map(Fn("_ + 1"))
 // [2, 3, 4]
-{% endraw %}
 ```
 
 ### Browser Support

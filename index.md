@@ -11,8 +11,10 @@ css:
 [wiki]: https://github.com/litejs/litejs/wiki
 [RFC 6570]: http://tools.ietf.org/html/rfc6570
 
+[size]: https://packagephobia.now.sh/badge?p=litejs
+[size-src]: https://packagephobia.now.sh/result?p=litejs
 
-LiteJS
+LiteJS &ndash; [![size][size]][size-src]
 ======
 
 The best way to build fast and powerful web interfaces.
@@ -21,7 +23,7 @@ Weighing in at just 28KB (12KB gzipped),
 it includes everything you need to build a modern web application:
 
  - routed views with browser history management
- - reusable templates by custom element tags
+ - reusable templates and custom elements
  - asynchronous and dynamic code loading
  - translations with instant language switching - no page reload required
 <details>
@@ -34,44 +36,32 @@ it includes everything you need to build a modern web application:
 </details>
 <p></p>
 
-See a [working example](https://cdn.rawgit.com/litejs/litejs/master/ui/example1.html)
-with a [source code](https://github.com/litejs/litejs/blob/master/ui/example1.html)
+See a [working example](https://cdn.rawgit.com/litejs/litejs/master/test/ui/example1.html)
+with a [source code](https://github.com/litejs/litejs/blob/master/test/ui/example1.html)
 in 80 lines.
-
-It also supports SVG elements,
-so it is possible to build full SVG single-page applications.  
-See a [example](https://cdn.rawgit.com/litejs/litejs/master/ui/svg-example1.html)
-with a [source code](https://github.com/litejs/litejs/blob/master/ui/svg-example1.html)
-in 60 lines.
+It is also possible to build full SVG single-page applications
+([example](https://cdn.rawgit.com/litejs/litejs/master/test/ui/svg-example1.html)
+with a [source code](https://github.com/litejs/litejs/blob/master/test/ui/svg-example1.html)
+in 60 lines).
 
 
-
-Get Started
------------
+## Get Started
 
 Build your first LiteJS app with in 5 minute [Quick Start Guide](https://github.com/litejs/litejs/wiki/Quick-Start).
-
-```
-npm install -g litejs
-litejs init demo-project
-cd demo-project
-npm start
-```
-
 See [wiki][] for more.
 
 
+## External links
 
-External links
---------------
+[GitHub repo][] |
+[npm package][] |
+[Travis CI](https://travis-ci.org/litejs/litejs) |
+[Coveralls code coverage](https://coveralls.io/github/litejs/litejs)
 
- - [GitHub repo][]
- - [npm package][]
 
+## Licence
 
-### Licence
-
-Copyright (c) 2013-2018 Lauri Rooden &lt;lauri@rooden.ee&gt;  
+Copyright (c) 2013-2019 Lauri Rooden &lt;lauri@rooden.ee&gt;  
 [The MIT License](http://lauri.rooden.ee/mit-license.txt)
 
 

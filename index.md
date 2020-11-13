@@ -61,7 +61,7 @@ See [wiki][] for more.
 
 ## Licence
 
-Copyright (c) 2013-2019 Lauri Rooden &lt;lauri@rooden.ee&gt;  
+Copyright (c) 2013-2020 Lauri Rooden &lt;lauri@rooden.ee&gt;  
 [The MIT License](http://lauri.rooden.ee/mit-license.txt)
 
 

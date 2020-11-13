@@ -1,0 +1,10 @@
+
+Privacy Policy
+--------------
+
+ - This application accesses your browsing content
+   to format content locally on your browser.
+
+ - This application does not collect, transmit, store or share
+   any personal information.
+
